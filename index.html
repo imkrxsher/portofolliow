@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>iMKRXSHER — Freelance Design</title>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
   <style>
     :root {
       --bg:       #0D0D14;
@@ -78,23 +79,41 @@
       letter-spacing: -0.02em;
       position: relative; z-index: 1;
       cursor: default;
+      background: linear-gradient(90deg, #fff 0%, var(--violet) 40%, var(--cyan) 60%, #fff 100%);
+      background-size: 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientMove 4s linear infinite;
+      min-height: 1.2em;
     }
-    .hero-name span.i  { color: var(--text); }
-    .hero-name span.m  { color: var(--muted); }
-    .hero-name span.kr { background: linear-gradient(135deg, var(--violet), var(--cyan));
-                         -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .hero-name span.xsher { color: var(--text); }
 
-    /* Glitch on hover */
-    .hero-name:hover { animation: glitch 0.4s steps(2) forwards; }
-    @keyframes glitch {
-      0%   { text-shadow: 2px 0 var(--violet), -2px 0 var(--cyan); transform: translate(0); }
-      20%  { text-shadow: -3px 0 var(--violet), 3px 0 var(--cyan); transform: translate(-2px, 1px); }
-      40%  { text-shadow: 3px 0 var(--cyan), -3px 0 var(--violet); transform: translate(2px, -1px); }
-      60%  { text-shadow: -2px 0 var(--violet), 2px 0 var(--cyan); transform: translate(1px, 0); }
-      80%  { text-shadow: 1px 0 var(--cyan), -1px 0 var(--violet); transform: translate(-1px, 1px); }
-      100% { text-shadow: none; transform: translate(0); }
+    /* Gradient gerak */
+    @keyframes gradientMove {
+      0%   { background-position: 0%; }
+      100% { background-position: 200%; }
     }
+
+    /* Glitch otomatis setiap 5 detik */
+    @keyframes glitch {
+      0%,90%,100% { text-shadow: none; transform: translate(0); }
+      91% { text-shadow: 3px 0 var(--violet), -3px 0 var(--cyan); transform: translate(-2px, 1px); }
+      93% { text-shadow: -3px 0 var(--cyan), 3px 0 var(--violet); transform: translate(2px, -1px); }
+      95% { text-shadow: 2px 0 var(--violet), -2px 0 var(--cyan); transform: translate(-1px, 0); }
+      97% { text-shadow: -2px 0 var(--cyan), 2px 0 var(--violet); transform: translate(1px, 1px); }
+      99% { text-shadow: 1px 0 var(--violet), -1px 0 var(--cyan); transform: translate(0, -1px); }
+    }
+    .hero-name { animation: gradientMove 4s linear infinite, glitch 5s steps(2) infinite; }
+
+    /* Cursor blink saat typing */
+    .hero-name::after {
+      content: '|';
+      -webkit-text-fill-color: var(--cyan);
+      animation: blink .7s step-end infinite;
+      margin-left: 4px;
+      font-weight: 300;
+    }
+    .hero-name.typed::after { display: none; }
+    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
 
     .hero-tagline {
       margin-top: 1.5rem; font-size: 1.1rem; color: var(--muted);
@@ -120,11 +139,17 @@
     }
     .btn-outline:hover { border-color: var(--violet); transform: translateY(-2px); }
 
+    /* Particles */
+    #particles {
+      position: absolute; inset: 0; z-index: 0;
+      pointer-events: none;
+    }
+
     /* Grid dots bg */
     #hero::after {
       content: '';
       position: absolute; inset: 0; z-index: 0;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
       background-size: 32px 32px;
       pointer-events: none;
     }
@@ -361,11 +386,10 @@
 
 <!-- HERO -->
 <section id="hero">
+  <div id="particles"></div>
   <div class="hero-bg"></div>
   <p class="hero-eyebrow reveal">Freelance Design Services · Pare, East Java</p>
-  <h1 class="hero-name reveal" title="Hover me!">
-    <span class="i">i</span><span class="m">M</span><span class="kr">KRX</span><span class="xsher">SHER</span>
-  </h1>
+  <h1 class="hero-name reveal" id="heroName"></h1>
   <p class="hero-tagline reveal">
     <strong>Logo redraw, vector design, & graphic work</strong> — turning blurry logos into clean, scalable visuals.
   </p>
@@ -548,7 +572,7 @@
           <span class="icon">📸</span>
           @imkrxsher
         </a>
-        <a href="https://wa.me/6285334776315" class="contact-link">
+        <a href="https://wa.me/62XXXXXXXXXX" class="contact-link">
           <!-- Ganti 62XXXXXXXXXX dengan nomor WA kamu -->
           <span class="icon">💬</span>
           WhatsApp (ganti nomor)
@@ -576,7 +600,22 @@
 </footer>
 
 <script>
-  // Scroll reveal
+  // ── TYPING EFFECT ──
+  const heroName = document.getElementById('heroName');
+  const fullText = 'iMKRXSHER';
+  let idx = 0;
+
+  function typeNext() {
+    if (idx < fullText.length) {
+      heroName.textContent = fullText.slice(0, ++idx);
+      setTimeout(typeNext, 130);
+    } else {
+      heroName.classList.add('typed'); // hide cursor after done
+    }
+  }
+  setTimeout(typeNext, 800); // start after 0.8s
+
+  // ── SCROLL REVEAL ──
   const reveals = document.querySelectorAll('.reveal');
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
@@ -587,6 +626,45 @@
     });
   }, { threshold: 0.1 });
   reveals.forEach(r => obs.observe(r));
+
+  // ── PARTICLES ──
+  tsParticles.load("particles", {
+    fullScreen: { enable: false },
+    background: { color: { value: "transparent" } },
+    fpsLimit: 60,
+    particles: {
+      number: { value: 60, density: { enable: true, area: 900 } },
+      color: { value: ["#7B2FFF", "#00D4FF", "#ffffff"] },
+      shape: { type: "circle" },
+      opacity: {
+        value: 0.4,
+        animation: { enable: true, speed: 0.8, minimumValue: 0.1, sync: false }
+      },
+      size: {
+        value: { min: 1, max: 3 },
+        animation: { enable: true, speed: 2, minimumValue: 0.5, sync: false }
+      },
+      links: {
+        enable: true, distance: 130, color: "#7B2FFF",
+        opacity: 0.15, width: 1
+      },
+      move: {
+        enable: true, speed: 0.6, direction: "none",
+        random: true, straight: false, outModes: { default: "out" }
+      }
+    },
+    interactivity: {
+      events: {
+        onHover: { enable: true, mode: "grab" },
+        onClick: { enable: true, mode: "push" }
+      },
+      modes: {
+        grab: { distance: 160, links: { opacity: 0.5 } },
+        push: { quantity: 3 }
+      }
+    },
+    detectRetina: true
+  });
 </script>
 </body>
 </html>
