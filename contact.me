@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>iMKRXSHER — Contact</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#0D0D14;--surface:#15151F;--card:#1C1C2A;--violet:#7B2FFF;--cyan:#00D4FF;--text:#F0EFF8;--muted:#6B6B8A;--border:#2A2A3C;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden;}
+    nav{position:fixed;top:0;width:100%;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 6vw;background:rgba(13,13,20,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+    .nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;background:linear-gradient(90deg,var(--violet),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none;}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s;padding-bottom:2px;}
+    .nav-links a:hover{color:var(--text);}
+    .nav-links a.active{color:var(--text);border-bottom:2px solid var(--violet);}
+
+    .page-hero{padding:10rem 6vw 5rem;background:var(--surface);position:relative;overflow:hidden;}
+    .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 80% at 20% 50%,rgba(123,47,255,.12) 0%,transparent 70%);}
+    .page-label{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--violet);font-weight:600;margin-bottom:1rem;}
+    .page-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:700;line-height:1;}
+
+    section{padding:5rem 6vw;}
+    .divider{width:100%;height:1px;background:linear-gradient(90deg,var(--violet),transparent);margin-bottom:3rem;}
+
+    /* CONTACT GRID */
+    .contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:start;}
+    .contact-info h2{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;margin-bottom:1rem;}
+    .contact-info p{color:var(--muted);line-height:1.7;margin-bottom:2rem;}
+    .contact-links{display:flex;flex-direction:column;gap:1rem;}
+    .contact-link{display:flex;align-items:center;gap:1rem;text-decoration:none;color:var(--text);font-size:.95rem;transition:color .2s;padding:1rem 1.2rem;background:var(--card);border:1px solid var(--border);border-radius:10px;transition:border-color .2s,transform .2s;}
+    .contact-link:hover{border-color:var(--violet);transform:translateX(4px);}
+    .contact-link .icon{width:40px;height:40px;border-radius:8px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+    .contact-link div h4{font-weight:600;font-size:.9rem;margin-bottom:.2rem;}
+    .contact-link div p{font-size:.8rem;color:var(--muted);}
+
+    /* FORM */
+    .contact-form{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2.5rem;}
+    .contact-form h3{font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:600;margin-bottom:1.5rem;}
+    .form-group{margin-bottom:1.2rem;}
+    .form-group label{display:block;font-size:.82rem;color:var(--muted);margin-bottom:.5rem;font-weight:500;}
+    .form-group input,.form-group textarea,.form-group select{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.8rem 1rem;color:var(--text);font-family:'Inter',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s;}
+    .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--violet);}
+    .form-group textarea{height:120px;resize:vertical;}
+    .form-group input::placeholder,.form-group textarea::placeholder{color:var(--muted);}
+    .form-group select option{background:var(--card);}
+    .btn-primary{width:100%;padding:.9rem;border-radius:8px;font-weight:600;font-size:.95rem;border:none;background:linear-gradient(135deg,var(--violet),#5B10DF);color:#fff;cursor:pointer;transition:opacity .2s,transform .2s;font-family:'Inter',sans-serif;}
+    .btn-primary:hover{opacity:.85;transform:translateY(-2px);}
+
+    /* FAQ */
+    .faq-section{background:var(--surface);}
+    .section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;margin-bottom:1rem;}
+    .section-label{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--violet);font-weight:600;margin-bottom:.8rem;}
+    .faq-list{display:flex;flex-direction:column;gap:1rem;margin-top:2rem;}
+    .faq-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.2rem 1.5rem;}
+    .faq-item h4{font-weight:600;font-size:.95rem;margin-bottom:.5rem;color:var(--cyan);}
+    .faq-item p{font-size:.88rem;color:var(--muted);line-height:1.6;}
+
+    footer{padding:2rem 6vw;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+    footer .logo{font-family:'Space Grotesk',sans-serif;font-weight:700;background:linear-gradient(90deg,var(--violet),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    footer p{color:var(--muted);font-size:.8rem;}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease;}
+    .reveal.visible{opacity:1;transform:none;}
+    @media(max-width:768px){.contact-grid{grid-template-columns:1fr;}.nav-links{display:none;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">iMKRXSHER</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <p class="page-label reveal">Contact</p>
+  <h1 class="page-title reveal">Let's Work<br>Together</h1>
+</div>
+
+<section>
+  <div class="divider"></div>
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <h2>Got a project?<br>Let's talk.</h2>
+      <p>Logo blurry? Need a clean vector file? Reach out through any of the channels below.</p>
+      <div class="contact-links">
+        <a href="https://wa.me/6285334776315" target="_blank" class="contact-link">
+          <div class="icon">💬</div>
+          <div><h4>WhatsApp</h4><p>+62 853-3477-6315</p></div>
+        </a>
+        <a href="https://instagram.com/imkrxsher" target="_blank" class="contact-link">
+          <div class="icon">📸</div>
+          <div><h4>Instagram</h4><p>@imkrxsher</p></div>
+        </a>
+        <a href="mailto:hendrakurniawan.id@proton.me" class="contact-link">
+          <div class="icon">✉️</div>
+          <div><h4>Email</h4><p>hendrakurniawan.id@proton.me</p></div>
+        </a>
+        <div class="contact-link" style="cursor:default;">
+          <div class="icon">📍</div>
+          <div><h4>Location</h4><p>Pare, Kediri — East Java, Indonesia</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form reveal">
+      <h3>Send a Message</h3>
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" placeholder="John Doe"/>
+      </div>
+      <div class="form-group">
+        <label>Email / WhatsApp</label>
+        <input type="text" placeholder="email or WA number"/>
+      </div>
+      <div class="form-group">
+        <label>Service Needed</label>
+        <select>
+          <option>Logo Redraw</option>
+          <option>Vector Recreation</option>
+          <option>Graphic Design</option>
+          <option>Image Enhancement</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Project Details</label>
+        <textarea placeholder="Tell me about your project..."></textarea>
+      </div>
+      <button class="btn-primary" onclick="alert('Terima kasih! Saya akan segera menghubungi kamu.')">Send Message</button>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <p class="section-label reveal">FAQ</p>
+  <h2 class="section-title reveal">Common Questions</h2>
+  <div class="divider"></div>
+  <div class="faq-list">
+    <div class="faq-item reveal"><h4>How long does a logo redraw take?</h4><p>Usually 1–3 days depending on complexity. Simple logos can be done same-day.</p></div>
+    <div class="faq-item reveal"><h4>What file formats do you deliver?</h4><p>PNG (high-res, transparent background). SVG available on request.</p></div>
+    <div class="faq-item reveal"><h4>Do you accept overseas orders?</h4><p>Yes! Communication via WhatsApp or email. Payment via PayPal or bank transfer.</p></div>
+    <div class="faq-item reveal"><h4>How many revisions are included?</h4><p>Up to 2 revisions per project are included in the price.</p></div>
+  </div>
+</section>
+
+<footer>
+  <span class="logo">iMKRXSHER</span>
+  <p>© 2026 iMKRXSHER — Freelance Design Services · Pare, East Java</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);obs.unobserve(e.target);}});},{threshold:.1});
+  reveals.forEach(r=>obs.observe(r));
+</script>
+</body>
+</html>
