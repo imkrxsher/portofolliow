@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>iMKRXSHER — About</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#0D0D14;--surface:#15151F;--card:#1C1C2A;--violet:#7B2FFF;--cyan:#00D4FF;--text:#F0EFF8;--muted:#6B6B8A;--border:#2A2A3C;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden;}
+    nav{position:fixed;top:0;width:100%;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 6vw;background:rgba(13,13,20,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+    .nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;letter-spacing:.05em;background:linear-gradient(90deg,var(--violet),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none;}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s;padding-bottom:2px;}
+    .nav-links a:hover{color:var(--text);}
+    .nav-links a.active{color:var(--text);border-bottom:2px solid var(--violet);}
+
+    .page-hero{padding:10rem 6vw 5rem;background:var(--surface);position:relative;overflow:hidden;}
+    .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 80% at 80% 50%,rgba(123,47,255,.12) 0%,transparent 70%);}
+    .page-label{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--violet);font-weight:600;margin-bottom:1rem;}
+    .page-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:700;line-height:1;}
+
+    section{padding:5rem 6vw;}
+    .divider{width:100%;height:1px;background:linear-gradient(90deg,var(--violet),transparent);margin-bottom:3rem;}
+
+    /* BIO GRID */
+    .bio-grid{display:grid;grid-template-columns:280px 1fr;gap:4rem;align-items:start;}
+    .bio-photo{width:100%;aspect-ratio:1;border-radius:16px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;text-align:center;padding:1rem;position:relative;overflow:hidden;}
+    .bio-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(123,47,255,.1),rgba(0,212,255,.05));}
+    /* GANTI FOTO: ubah background-image di sini */
+    .bio-content h2{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;margin-bottom:.5rem;}
+    .bio-content .role{color:var(--cyan);font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.5rem;}
+    .bio-content p{color:var(--muted);line-height:1.8;margin-bottom:1.2rem;font-size:1rem;}
+
+    /* SKILLS */
+    .skills-section{background:var(--surface);}
+    .section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;margin-bottom:1rem;}
+    .section-label{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--violet);font-weight:600;margin-bottom:.8rem;}
+    .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-top:2rem;}
+    .skill-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.2rem 1.5rem;display:flex;align-items:center;gap:1rem;transition:border-color .2s,transform .2s;}
+    .skill-item:hover{border-color:var(--violet);transform:translateY(-2px);}
+    .skill-item span.icon{font-size:1.5rem;}
+    .skill-item div h4{font-size:.95rem;font-weight:600;margin-bottom:.2rem;}
+    .skill-item div p{font-size:.75rem;color:var(--muted);}
+
+    /* EXPERIENCE */
+    .exp-list{display:flex;flex-direction:column;gap:1.5rem;margin-top:2rem;}
+    .exp-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem 2rem;display:grid;grid-template-columns:auto 1fr;gap:1rem 1.5rem;align-items:start;}
+    .exp-dot{width:12px;height:12px;border-radius:50%;background:var(--violet);margin-top:5px;}
+    .exp-item h4{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1rem;margin-bottom:.3rem;}
+    .exp-item .meta{font-size:.8rem;color:var(--cyan);margin-bottom:.5rem;}
+    .exp-item p{font-size:.9rem;color:var(--muted);line-height:1.6;}
+
+    footer{padding:2rem 6vw;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+    footer .logo{font-family:'Space Grotesk',sans-serif;font-weight:700;background:linear-gradient(90deg,var(--violet),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    footer p{color:var(--muted);font-size:.8rem;}
+
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease;}
+    .reveal.visible{opacity:1;transform:none;}
+    @media(max-width:768px){.bio-grid{grid-template-columns:1fr;}.nav-links{display:none;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">iMKRXSHER</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <p class="page-label reveal">About</p>
+  <h1 class="page-title reveal">The Person<br>Behind the Brand</h1>
+</div>
+
+<!-- BIO -->
+<section style="background:var(--bg);">
+  <div class="divider"></div>
+  <div class="bio-grid">
+    <div class="bio-photo reveal">
+      <!-- GANTI FOTO: <img src="foto.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:16px;"> -->
+      Foto Profil<br>(ganti dengan foto kamu)
+    </div>
+    <div class="bio-content reveal">
+      <h2>Hendra Kurniawan</h2>
+      <p class="role">Freelance Designer · iMKRXSHER</p>
+      <p>Based in Pare, Kediri — East Java, Indonesia. I operate under the brand <strong>iMKRXSHER</strong>, offering freelance graphic design services with a focus on logo redraw and vector recreation.</p>
+      <p>I specialize in turning low-resolution, blurry, or pixelated logos into clean, print-ready vector files — whether that means rebuilding from scratch with Pen Tool or integrating downloaded assets into a polished composition.</p>
+      <p>Currently finishing my undergraduate degree in English Education (Tadris Bahasa Inggris) at IAIH Pare, while actively building my freelance portfolio through real client projects.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section">
+  <p class="section-label reveal">Skills</p>
+  <h2 class="section-title reveal">Tools & Expertise</h2>
+  <div class="divider"></div>
+  <div class="skills-grid">
+    <div class="skill-item reveal"><span class="icon">🖼️</span><div><h4>Photoshop</h4><p>Image editing & enhancement</p></div></div>
+    <div class="skill-item reveal"><span class="icon">✒️</span><div><h4>Affinity Designer</h4><p>Vector design & logo redraw</p></div></div>
+    <div class="skill-item reveal"><span class="icon">🎨</span><div><h4>Canva</h4><p>Quick design & social media</p></div></div>
+    <div class="skill-item reveal"><span class="icon">🖌️</span><div><h4>Figma</h4><p>UI design & prototyping</p></div></div>
+    <div class="skill-item reveal"><span class="icon">✏️</span><div><h4>Pen Tool</h4><p>Custom shape & path drawing</p></div></div>
+    <div class="skill-item reveal"><span class="icon">🌐</span><div><h4>HTML & CSS</h4><p>Basic web portfolio building</p></div></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section style="background:var(--bg);">
+  <p class="section-label reveal">Experience</p>
+  <h2 class="section-title reveal">Projects & Background</h2>
+  <div class="divider"></div>
+  <div class="exp-list">
+    <div class="exp-item reveal">
+      <div class="exp-dot"></div>
+      <div>
+        <h4>Logo Redraw — BEC Pare 15677</h4>
+        <p class="meta">2026 · Freelance · 4 Logos</p>
+        <p>Redrew 4 logos (Smart, Happy, Active, Success Meeting) from blurry originals into clean PNG files using Pen Tool in Photoshop and Affinity Designer.</p>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-dot"></div>
+      <div>
+        <h4>Undergraduate Thesis — IAIH Pare</h4>
+        <p class="meta">2026 · Academic · English Education</p>
+        <p>Completed thesis on curriculum alignment analysis (CPL–CPMK) using Constructive Alignment framework. GPA: 3.84.</p>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-dot"></div>
+      <div>
+        <h4>iMKRXSHER Brand — Freelance</h4>
+        <p class="meta">2026 · Ongoing</p>
+        <p>Building a freelance design brand from scratch — logo redraw, graphic design, and visual identity work for local clients.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="logo">iMKRXSHER</span>
+  <p>© 2026 iMKRXSHER — Freelance Design Services · Pare, East Java</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);obs.unobserve(e.target);}});},{threshold:.1});
+  reveals.forEach(r=>obs.observe(r));
+</script>
+</body>
+</html>
