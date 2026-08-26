@@ -64,6 +64,7 @@
       letter-spacing: 0.05em;
       background: linear-gradient(90deg, var(--violet), var(--cyan));
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
       text-decoration: none;
     }
@@ -129,6 +130,7 @@
       background: linear-gradient(90deg, #fff 0%, var(--violet) 40%, var(--cyan) 60%, #fff 100%);
       background-size: 200%;
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: gradientMove 4s linear infinite;
       min-height: 1.2em;
@@ -489,23 +491,23 @@
       ════════════════════════════════════════════════
     */
     .portfolio-thumb.p1 {
-      background: url('smart-meeting.jpeg') center/cover;
-      linear-gradient(135deg, #1a1a3e, #2d1b69);
+      background: linear-gradient(135deg, rgba(26, 26, 62, .35), rgba(45, 27, 105, .35)),
+        url('portofolio/success-meeting.jpeg') center/cover;
     }
 
     .portfolio-thumb.p2 {
-      background: url('active-meeting.jpeg') center/cover;
-      linear-gradient(135deg, #0d2137, #1a4a6b);
+      background: linear-gradient(135deg, rgba(13, 33, 55, .35), rgba(26, 74, 107, .35)),
+        url('portofolio/happy-meeting.jpeg') center/cover;
     }
 
     .portfolio-thumb.p3 {
-      background: url('happy-meeting.jpeg') center/cover;
-      linear-gradient(135deg, #1a2e1a, #2d5a2d);
+      background: linear-gradient(135deg, rgba(26, 46, 26, .35), rgba(45, 90, 45, .35)),
+        url('portofolio/smart-meeting.jpeg') center/cover;
     }
 
     .portfolio-thumb.p4 {
-      background: url('success-meeting.jpeg') center/cover;
-      linear-gradient(135deg, #2e1a1a, #6b2d2d);
+      background: linear-gradient(135deg, rgba(46, 26, 26, .35), rgba(107, 45, 45, .35)),
+        url('portofolio/active-meeting.jpeg') center/cover;
     }
 
     .portfolio-thumb.p5 {
@@ -670,6 +672,7 @@
       font-size: 1rem;
       background: linear-gradient(90deg, var(--violet), var(--cyan));
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
