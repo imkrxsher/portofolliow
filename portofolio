@@ -1,151 +1,423 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>iMKRXSHER — Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap"
+    rel="stylesheet" />
   <style>
-    :root{--bg:#0D0D14;--surface:#15151F;--card:#1C1C2A;--violet:#7B2FFF;--cyan:#00D4FF;--text:#F0EFF8;--muted:#6B6B8A;--border:#2A2A3C;}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden;}
-    nav{position:fixed;top:0;width:100%;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 6vw;background:rgba(13,13,20,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
-    .nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;background:linear-gradient(90deg,var(--violet),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none;}
-    .nav-links{display:flex;gap:2rem;list-style:none;}
-    .nav-links a{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s;padding-bottom:2px;}
-    .nav-links a:hover{color:var(--text);}
-    .nav-links a.active{color:var(--text);border-bottom:2px solid var(--violet);}
+    :root {
+      --bg: #0D0D14;
+      --surface: #15151F;
+      --card: #1C1C2A;
+      --violet: #7B2FFF;
+      --cyan: #00D4FF;
+      --text: #F0EFF8;
+      --muted: #6B6B8A;
+      --border: #2A2A3C;
+    }
 
-    .page-hero{padding:10rem 6vw 5rem;background:var(--surface);position:relative;overflow:hidden;}
-    .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 80% at 80% 50%,rgba(0,212,255,.08) 0%,transparent 70%);}
-    .page-label{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--violet);font-weight:600;margin-bottom:1rem;}
-    .page-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:700;line-height:1;}
-    .page-sub{color:var(--muted);margin-top:1rem;max-width:480px;}
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    section{padding:5rem 6vw;}
-    .divider{width:100%;height:1px;background:linear-gradient(90deg,var(--violet),transparent);margin-bottom:3rem;}
-    .section-label{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--violet);font-weight:600;margin-bottom:.8rem;}
-    .section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;margin-bottom:1rem;}
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 6vw;
+      background: rgba(13, 13, 20, .85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      background: linear-gradient(90deg, var(--violet), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 500;
+      transition: color .2s;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a.active {
+      color: var(--text);
+      border-bottom: 2px solid var(--violet);
+    }
+
+    .page-hero {
+      padding: 10rem 6vw 5rem;
+      background: var(--surface);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 50% 80% at 80% 50%, rgba(0, 212, 255, .08) 0%, transparent 70%);
+    }
+
+    .page-label {
+      font-size: .75rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--violet);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .page-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .page-sub {
+      color: var(--muted);
+      margin-top: 1rem;
+      max-width: 480px;
+    }
+
+    section {
+      padding: 5rem 6vw;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--violet), transparent);
+      margin-bottom: 3rem;
+    }
+
+    .section-label {
+      font-size: .75rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--violet);
+      font-weight: 600;
+      margin-bottom: .8rem;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
 
     /* FILTER */
-    .filter-bar{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:2.5rem;}
-    .filter-btn{padding:.4rem 1.2rem;border-radius:999px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:.85rem;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif;}
-    .filter-btn:hover,.filter-btn.active{background:var(--violet);border-color:var(--violet);color:#fff;}
+    .filter-bar {
+      display: flex;
+      gap: .8rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .filter-btn {
+      padding: .4rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      font-size: .85rem;
+      cursor: pointer;
+      transition: all .2s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--violet);
+      border-color: var(--violet);
+      color: #fff;
+    }
 
     /* PORTFOLIO GRID */
-    .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;}
-    .portfolio-item{border-radius:12px;overflow:hidden;border:1px solid var(--border);background:var(--card);transition:transform .2s,border-color .2s;}
-    .portfolio-item:hover{transform:translateY(-6px);border-color:var(--cyan);}
-    .portfolio-thumb{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:.85rem;color:var(--muted);text-align:center;padding:1rem;position:relative;overflow:hidden;}
-    /* GANTI GAMBAR: tambahkan background-image:url('file.png') di masing-masing */
-    .p1{background:linear-gradient(135deg,#1a1a3e,#2d1b69);}
-    .p2{background:linear-gradient(135deg,#0d2137,#1a4a6b);}
-    .p3{background:linear-gradient(135deg,#1a2e1a,#2d5a2d);}
-    .p4{background:linear-gradient(135deg,#2e1a1a,#6b2d2d);}
-    .p5{background:linear-gradient(135deg,#1a1a2e,#4a1a6b);}
-    .p6{background:linear-gradient(135deg,#1a2a2e,#1a5a6b);}
-    .portfolio-label{position:absolute;bottom:0;left:0;right:0;padding:.6rem 1rem;background:rgba(13,13,20,.8);backdrop-filter:blur(4px);font-size:.75rem;color:var(--text);display:flex;align-items:center;justify-content:space-between;}
-    .portfolio-tag{font-size:.65rem;padding:.2rem .5rem;border-radius:999px;background:var(--violet);color:#fff;}
-    .portfolio-info{padding:1.2rem 1.5rem;}
-    .portfolio-info h4{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;margin-bottom:.3rem;}
-    .portfolio-info p{font-size:.82rem;color:var(--muted);}
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
 
-    footer{padding:2rem 6vw;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
-    footer .logo{font-family:'Space Grotesk',sans-serif;font-weight:700;background:linear-gradient(90deg,var(--violet),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-    footer p{color:var(--muted);font-size:.8rem;}
-    .reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease;}
-    .reveal.visible{opacity:1;transform:none;}
-    @media(max-width:768px){.nav-links{display:none;}}
+    .portfolio-item {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--card);
+      transition: transform .2s, border-color .2s;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-6px);
+      border-color: var(--cyan);
+    }
+
+    .portfolio-thumb {
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .85rem;
+      color: var(--muted);
+      text-align: center;
+      padding: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .p1 {
+      background: linear-gradient(135deg, rgba(26, 26, 62, .35), rgba(45, 27, 105, .35)), url('assets/portfolio/success-meeting.jpeg') center/cover;
+    }
+
+    .p2 {
+      background: linear-gradient(135deg, rgba(13, 33, 55, .35), rgba(26, 74, 107, .35)), url('assets/portfolio/happy-meeting.jpeg') center/cover;
+    }
+
+    .p3 {
+      background: linear-gradient(135deg, rgba(26, 46, 26, .35), rgba(45, 90, 45, .35)), url('assets/portfolio/smart-meeting.jpeg') center/cover;
+    }
+
+    .p4 {
+      background: linear-gradient(135deg, rgba(46, 26, 26, .35), rgba(107, 45, 45, .35)), url('assets/portfolio/active-meeting.jpeg') center/cover;
+    }
+
+    .p5 {
+      background: linear-gradient(135deg, #1a1a2e, #4a1a6b);
+    }
+
+    .p6 {
+      background: linear-gradient(135deg, #1a2a2e, #1a5a6b);
+    }
+
+    .portfolio-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: .6rem 1rem;
+      background: rgba(13, 13, 20, .8);
+      backdrop-filter: blur(4px);
+      font-size: .75rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .portfolio-tag {
+      font-size: .65rem;
+      padding: .2rem .5rem;
+      border-radius: 999px;
+      background: var(--violet);
+      color: #fff;
+    }
+
+    .portfolio-info {
+      padding: 1.2rem 1.5rem;
+    }
+
+    .portfolio-info h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: .3rem;
+    }
+
+    .portfolio-info p {
+      font-size: .82rem;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 2rem 6vw;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--violet), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    footer p {
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media(max-width:768px) {
+      .nav-links {
+        display: none;
+      }
+    }
   </style>
 </head>
+
 <body>
-<nav>
-  <a href="index.html" class="nav-logo">iMKRXSHER</a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="portfolio.html" class="active">Portfolio</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
+  <nav>
+    <a href="index.html" class="nav-logo">iMKRXSHER</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="portofolio" class="active">Portfolio</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-<div class="page-hero">
-  <p class="page-label reveal">Portfolio</p>
-  <h1 class="page-title reveal">Recent Work</h1>
-  <p class="page-sub reveal">Logo redraw & graphic design projects — from blurry originals to clean vector files.</p>
-</div>
-
-<section>
-  <div class="filter-bar reveal">
-    <button class="filter-btn active">All</button>
-    <button class="filter-btn">Logo Redraw</button>
-    <button class="filter-btn">Graphic Design</button>
-    <button class="filter-btn">Vector</button>
+  <div class="page-hero">
+    <p class="page-label reveal">Portfolio</p>
+    <h1 class="page-title reveal">Recent Work</h1>
+    <p class="page-sub reveal">Logo redraw & graphic design projects — from blurry originals to clean vector files.</p>
   </div>
-  <div class="divider"></div>
-  <div class="portfolio-grid">
 
-    <div class="portfolio-item reveal">
-      <div class="portfolio-thumb p1">
-        <!-- <img src="success-meeting.png" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"> -->
-        <span>Ganti dengan foto karya</span>
-        <div class="portfolio-label">Success Meeting <span class="portfolio-tag">Logo Redraw</span></div>
-      </div>
-      <div class="portfolio-info"><h4>Success Meeting — BEC Pare</h4><p>Aset tersedia · Redraw & clean-up · PNG</p></div>
+  <section>
+    <div class="filter-bar reveal">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">Logo Redraw</button>
+      <button class="filter-btn">Graphic Design</button>
+      <button class="filter-btn">Vector</button>
     </div>
+    <div class="divider"></div>
+    <div class="portfolio-grid">
 
-    <div class="portfolio-item reveal">
-      <div class="portfolio-thumb p2">
-        <span>Ganti dengan foto karya</span>
-        <div class="portfolio-label">Happy Meeting <span class="portfolio-tag">Logo Redraw</span></div>
+      <div class="portfolio-item reveal">
+        <div class="portfolio-thumb p1">
+          <!-- <img src="success-meeting.png" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"> -->
+          <span>Ganti dengan foto karya</span>
+          <div class="portfolio-label">Success Meeting <span class="portfolio-tag">Logo Redraw</span></div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Success Meeting — BEC Pare</h4>
+          <p>Aset tersedia · Redraw & clean-up · PNG</p>
+        </div>
       </div>
-      <div class="portfolio-info"><h4>Happy Meeting — BEC Pare</h4><p>Shapes built from scratch · Pen Tool · PNG</p></div>
-    </div>
 
-    <div class="portfolio-item reveal">
-      <div class="portfolio-thumb p3">
-        <span>Ganti dengan foto karya</span>
-        <div class="portfolio-label">Smart Meeting <span class="portfolio-tag">Logo Redraw</span></div>
+      <div class="portfolio-item reveal">
+        <div class="portfolio-thumb p2">
+          <span>Ganti dengan foto karya</span>
+          <div class="portfolio-label">Happy Meeting <span class="portfolio-tag">Logo Redraw</span></div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Happy Meeting — BEC Pare</h4>
+          <p>Shapes built from scratch · Pen Tool · PNG</p>
+        </div>
       </div>
-      <div class="portfolio-info"><h4>Smart Meeting — BEC Pare</h4><p>Pen Tool + globe asset integration · PNG</p></div>
-    </div>
 
-    <div class="portfolio-item reveal">
-      <div class="portfolio-thumb p4">
-        <span>Ganti dengan foto karya</span>
-        <div class="portfolio-label">Active Meeting <span class="portfolio-tag">Logo Redraw</span></div>
+      <div class="portfolio-item reveal">
+        <div class="portfolio-thumb p3">
+          <span>Ganti dengan foto karya</span>
+          <div class="portfolio-label">Smart Meeting <span class="portfolio-tag">Logo Redraw</span></div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Smart Meeting — BEC Pare</h4>
+          <p>Pen Tool + globe asset integration · PNG</p>
+        </div>
       </div>
-      <div class="portfolio-info"><h4>Active Meeting — BEC Pare</h4><p>Complex background · orbit elements · PNG</p></div>
-    </div>
 
-    <div class="portfolio-item reveal">
-      <div class="portfolio-thumb p5">
-        <span>Tambahkan karya lainnya</span>
-        <div class="portfolio-label">Coming Soon <span class="portfolio-tag">Next Project</span></div>
+      <div class="portfolio-item reveal">
+        <div class="portfolio-thumb p4">
+          <span>Ganti dengan foto karya</span>
+          <div class="portfolio-label">Active Meeting <span class="portfolio-tag">Logo Redraw</span></div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Active Meeting — BEC Pare</h4>
+          <p>Complex background · orbit elements · PNG</p>
+        </div>
       </div>
-      <div class="portfolio-info"><h4>Your Next Project Here</h4><p>Slot terbuka untuk karya berikutnya</p></div>
-    </div>
 
-    <div class="portfolio-item reveal">
-      <div class="portfolio-thumb p6">
-        <span>Tambahkan karya lainnya</span>
-        <div class="portfolio-label">Coming Soon <span class="portfolio-tag">Next Project</span></div>
+      <div class="portfolio-item reveal">
+        <div class="portfolio-thumb p5">
+          <span>Tambahkan karya lainnya</span>
+          <div class="portfolio-label">Coming Soon <span class="portfolio-tag">Next Project</span></div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Your Next Project Here</h4>
+          <p>Slot terbuka untuk karya berikutnya</p>
+        </div>
       </div>
-      <div class="portfolio-info"><h4>Your Next Project Here</h4><p>Slot terbuka untuk karya berikutnya</p></div>
+
+      <div class="portfolio-item reveal">
+        <div class="portfolio-thumb p6">
+          <span>Tambahkan karya lainnya</span>
+          <div class="portfolio-label">Coming Soon <span class="portfolio-tag">Next Project</span></div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Your Next Project Here</h4>
+          <p>Slot terbuka untuk karya berikutnya</p>
+        </div>
+      </div>
+
     </div>
+  </section>
 
-  </div>
-</section>
+  <footer>
+    <span class="logo">iMKRXSHER</span>
+    <p>© 2026 iMKRXSHER — Freelance Design Services · Pare, East Java</p>
+  </footer>
 
-<footer>
-  <span class="logo">iMKRXSHER</span>
-  <p>© 2026 iMKRXSHER — Freelance Design Services · Pare, East Java</p>
-</footer>
-
-<script>
-  const reveals = document.querySelectorAll('.reveal');
-  const obs = new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);obs.unobserve(e.target);}});},{threshold:.1});
-  reveals.forEach(r=>obs.observe(r));
-</script>
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => { entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); obs.unobserve(e.target); } }); }, { threshold: .1 });
+    reveals.forEach(r => obs.observe(r));
+  </script>
 </body>
+
 </html>
