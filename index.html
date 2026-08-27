@@ -682,7 +682,111 @@
     }
 
     /* ── RESPONSIVE ── */
+    /* ── HAMBURGER BUTTON ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      transition: all .3s;
+    }
+
+    /* ── MOBILE MENU ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 65px;
+      left: 0;
+      right: 0;
+      background: rgba(13, 13, 20, 0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 6vw;
+      z-index: 99;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
     @media (max-width: 768px) {
+
+      /* Navbar */
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      /* Hero */
+      #hero {
+        padding: 0 5vw;
+        align-items: center;
+        text-align: center;
+      }
+
+      .hero-eyebrow {
+        font-size: .7rem;
+      }
+
+      .hero-cta {
+        justify-content: center;
+      }
+
+      /* About grid */
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .about-img-wrap {
+        max-width: 260px;
+        margin: 0 auto;
+      }
+
+      /* Services */
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Portfolio */
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Contact */
+      .contact-wrap {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem 1.5rem;
+      }
+
+      /* General */
+      section {
+        padding: 4rem 5vw;
+      }
+    }
+
+      {
 
       .about-grid,
       .contact-wrap {
@@ -718,6 +822,11 @@
   <!-- NAV -->
   <nav>
     <a href="#hero" class="nav-logo">iMKRXSHER</a>
+    <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
@@ -725,6 +834,13 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#services" onclick="toggleMenu()">Services</a>
+    <a href="#portfolio" onclick="toggleMenu()">Portfolio</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+  </div>
+
 
   <!-- HERO -->
   <section id="hero">
@@ -1004,6 +1120,9 @@
       detectRetina: true
     });
   </script>
+  function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+  }
 </body>
 
 </html>
