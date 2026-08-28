@@ -245,6 +245,9 @@
       background: linear-gradient(135deg, var(--violet), #5B10DF);
       color: #fff;
       transition: opacity .2s, transform .2s;
+      display: inline-block;
+      border: none;
+      cursor: pointer;
     }
 
     .btn-primary:hover {
@@ -261,6 +264,7 @@
       border: 1px solid var(--border);
       color: var(--text);
       transition: border-color .2s, transform .2s;
+      display: inline-block;
     }
 
     .btn-outline:hover {
@@ -664,6 +668,7 @@
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 1rem;
+      text-align: center;
     }
 
     footer .logo {
@@ -674,11 +679,13 @@
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
+      width: 100%;
     }
 
     footer p {
       color: var(--muted);
       font-size: .8rem;
+      width: 100%;
     }
 
     /* ── RESPONSIVE ── */
@@ -729,6 +736,10 @@
     @media (max-width: 768px) {
 
       /* Navbar */
+      nav {
+        padding: 1rem 4vw;
+      }
+
       .nav-links {
         display: none;
       }
@@ -742,14 +753,34 @@
         padding: 0 5vw;
         align-items: center;
         text-align: center;
+        min-height: 90vh;
       }
 
       .hero-eyebrow {
         font-size: .7rem;
       }
 
+      .hero-name {
+        font-size: clamp(2rem, 10vw, 4rem);
+      }
+
+      .hero-tagline {
+        font-size: .95rem;
+        max-width: 100%;
+      }
+
       .hero-cta {
         justify-content: center;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn-primary,
+      .btn-outline {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        font-size: .9rem;
+        text-align: center;
       }
 
       /* About grid */
@@ -763,14 +794,26 @@
         margin: 0 auto;
       }
 
+      .about-text h3 {
+        font-size: 1.2rem;
+      }
+
       /* Services */
       .services-grid {
         grid-template-columns: 1fr;
       }
 
+      .service-card {
+        padding: 1.5rem;
+      }
+
       /* Portfolio */
       .portfolio-grid {
         grid-template-columns: 1fr;
+      }
+
+      .portfolio-thumb {
+        aspect-ratio: 16/9;
       }
 
       /* Contact */
@@ -780,27 +823,38 @@
         padding: 2rem 1.5rem;
       }
 
+      .contact-right input,
+      .contact-right textarea,
+      .contact-right .btn-primary {
+        width: 100%;
+      }
+
+      .contact-right .btn-primary {
+        padding: 1rem 1.5rem;
+        margin-top: 0.5rem;
+      }
+
+      /* Footer */
+      footer {
+        padding: 2rem 4vw;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      footer .logo,
+      footer p {
+        width: 100%;
+      }
+
       /* General */
       section {
-        padding: 4rem 5vw;
-      }
-    }
-
-      {
-
-      .about-grid,
-      .contact-wrap {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+        padding: 3rem 4vw;
       }
 
-      .nav-links {
-        display: none;
+      .section-title {
+        font-size: clamp(1.5rem, 6vw, 2rem);
       }
 
-      .hero-name {
-        font-size: clamp(2.5rem, 15vw, 5rem);
-      }
     }
 
     /* ── SCROLL REVEAL ── */
@@ -846,7 +900,7 @@
   <section id="hero">
     <div id="particles"></div>
     <div class="hero-bg"></div>
-    <p class="hero-eyebrow reveal">Freelance Design Services · Pare, East Java</p>
+    <p class="hero-eyebrow reveal">Freelance Design Services</p>
     <h1 class="hero-name reveal" id="heroName"></h1>
     <p class="hero-tagline reveal">
       <strong>Logo redraw, vector design, & graphic work</strong> — turning blurry logos into clean, scalable visuals.
@@ -867,7 +921,7 @@
       <div class="about-text reveal">
         <h3>Hendra Kurniawan</h3>
         <p>
-          Freelance graphic designer based in Pare, Kediri — East Java. Operating under the brand
+          Freelance graphic designer. Operating under the brand
           <strong>iMKRXSHER</strong>, I specialize in logo redraw and vector recreation, turning
           low-resolution or pixelated logos into clean, print-ready files.
         </p>
@@ -922,7 +976,7 @@
   <section id="portfolio">
     <p class="section-label reveal">Portfolio</p>
     <h2 class="section-title reveal">Recent Work</h2>
-    <p class="section-sub reveal">Logo redraw projects for BEC Pare 15677 — from blurry originals to clean vector files.
+    <p class="section-sub reveal">Logo redraw projects for BEC 15677 — from blurry originals to clean vector files.
     </p>
     <div class="divider"></div>
     <div class="portfolio-grid">
@@ -942,7 +996,7 @@
           </div>
         </div>
         <div class="portfolio-info">
-          <h4>Success Meeting — BEC Pare</h4>
+          <h4>Success Meeting — BEC</h4>
           <p>Vector redraw · Pen Tool · SVG + PNG</p>
         </div>
       </div>
@@ -954,7 +1008,7 @@
           </div>
         </div>
         <div class="portfolio-info">
-          <h4>Happy Meeting — BEC Pare</h4>
+          <h4>Happy Meeting — BEC</h4>
           <p>Shapes built from scratch · Pen Tool</p>
         </div>
       </div>
@@ -966,7 +1020,7 @@
           </div>
         </div>
         <div class="portfolio-info">
-          <h4>Smart Meeting — BEC Pare</h4>
+          <h4>Smart Meeting — BEC</h4>
           <p>Pen Tool + globe asset integration</p>
         </div>
       </div>
@@ -978,7 +1032,7 @@
           </div>
         </div>
         <div class="portfolio-info">
-          <h4>Active Meeting — BEC Pare</h4>
+          <h4>Active Meeting — BEC</h4>
           <p>Complex background · orbit elements</p>
         </div>
       </div>
@@ -1040,7 +1094,7 @@
         <input type="text" placeholder="Nama kamu" />
         <input type="email" placeholder="Email kamu" />
         <textarea placeholder="Ceritain projectnya..."></textarea>
-        <a href="#" class="btn-primary" style="text-align:center"
+        <a href="#" class="btn-primary"
           onclick="event.preventDefault(); const fields = this.parentElement.querySelectorAll('input, textarea'); const subject = encodeURIComponent('Pesan project dari ' + fields[0].value); const body = encodeURIComponent('Nama: ' + fields[0].value + '\nEmail: ' + fields[1].value + '\n\nProject:\n' + fields[2].value); window.location.href = 'mailto:hendrakurniawan.id@gmail.com?subject=' + subject + '&body=' + body;">Kirim
           Pesan</a>
       </div>
@@ -1050,7 +1104,7 @@
   <!-- FOOTER -->
   <footer>
     <span class="logo">iMKRXSHER</span>
-    <p>© 2026 iMKRXSHER — Freelance Design Services · Pare, East Java</p>
+    <p>© 2026 iMKRXSHER — Freelance Design Services</p>
   </footer>
 
   <script>
@@ -1119,10 +1173,11 @@
       },
       detectRetina: true
     });
+
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
   </script>
-  function toggleMenu() {
-  document.getElementById('mobileMenu').classList.toggle('open');
-  }
 </body>
 
 </html>
