@@ -355,19 +355,11 @@
       position: relative;
     }
 
-    /* 
-      ════════════════════════════════════════════════
-      GANTI FOTO PROFIL:
-      Ubah baris di bawah ini dengan URL foto kamu:
-      background-image: url('foto-kamu.jpg');
-      ════════════════════════════════════════════════
-    */
-    .about-img-wrap::before {
-      content: 'Foto Profil\A(ganti dengan foto kamu)';
-      white-space: pre;
-      text-align: center;
-      color: var(--muted);
-      font-size: .85rem;
+    .about-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .about-img-wrap::after {
@@ -922,7 +914,9 @@
     <h2 class="section-title reveal">Who is iMKRXSHER?</h2>
     <div class="divider"></div>
     <div class="about-grid">
-      <div class="about-img-wrap reveal"></div>
+      <div class="about-img-wrap reveal">
+        <img src="assets/portfolio-image/foto-profil.png" alt="Hendra Kurniawan, freelance graphic designer" />
+      </div>
       <div class="about-text reveal">
         <h3>Hendra Kurniawan</h3>
         <p>
