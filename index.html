@@ -557,6 +557,147 @@
       color: var(--muted);
     }
 
+    .portfolio-showcase {
+      margin-top: 2.5rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .portfolio-carousel {
+      position: relative;
+      background: linear-gradient(180deg, rgba(18, 22, 32, 0.9), rgba(10, 12, 18, 0.9));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 28px 70px rgba(4, 8, 18, 0.4);
+    }
+
+    .carousel-viewport {
+      overflow: hidden;
+      border-radius: 24px;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      position: relative;
+      background: #070b13;
+    }
+
+    .carousel-slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7, 11, 19, 0.08) 0%, rgba(7, 11, 19, 0.42) 100%);
+      pointer-events: none;
+    }
+
+    .carousel-slide img {
+      display: block;
+      width: 100%;
+      height: min(70vh, 640px);
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(1.12) contrast(1.08) brightness(0.92);
+    }
+
+    .slide-caption {
+      position: absolute;
+      left: 1.2rem;
+      right: 1.2rem;
+      bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background: rgba(10, 12, 18, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      padding: .8rem 1.1rem;
+      color: var(--text);
+      z-index: 1;
+    }
+
+    .slide-caption span {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: .92rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .slide-caption em {
+      font-style: normal;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      background: rgba(12, 15, 23, 0.72);
+      color: var(--text);
+      font-size: 1.7rem;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 3;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+      box-shadow: 0 10px 30px rgba(9, 10, 20, 0.35);
+    }
+
+    .carousel-btn:hover {
+      transform: translateY(-50%) scale(1.04);
+      border-color: rgba(0, 212, 255, 0.7);
+      background: rgba(17, 25, 34, 0.88);
+      box-shadow: 0 14px 32px rgba(28, 71, 146, 0.35);
+    }
+
+    .carousel-btn.prev {
+      left: 1rem;
+    }
+
+    .carousel-btn.next {
+      right: 1rem;
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: .7rem;
+      margin-top: .5rem;
+    }
+
+    .carousel-dots .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.12);
+      cursor: pointer;
+      transition: all .2s ease;
+      padding: 0;
+    }
+
+    .carousel-dots .dot.active {
+      background: linear-gradient(135deg, var(--violet), var(--cyan));
+      border-color: transparent;
+      transform: scale(1.14);
+      box-shadow: 0 0 16px rgba(123, 47, 255, 0.6);
+    }
+
     /* ── CONTACT ── */
     #contact {
       background: var(--bg);
@@ -813,6 +954,38 @@
         aspect-ratio: 16/9;
       }
 
+      .carousel-slide img {
+        height: 420px;
+      }
+
+      .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.4rem;
+      }
+
+      .carousel-btn.prev {
+        left: .75rem;
+      }
+
+      .carousel-btn.next {
+        right: .75rem;
+      }
+
+      .slide-caption {
+        left: .75rem;
+        right: .75rem;
+        bottom: .75rem;
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 16px;
+      }
+
+      .slide-caption span,
+      .slide-caption em {
+        letter-spacing: .08em;
+      }
+
       /* Contact */
       .contact-wrap {
         grid-template-columns: 1fr;
@@ -978,6 +1151,45 @@
     <p class="section-sub reveal">Logo redraw projects for BEC 15677 — from blurry originals to clean vector files.
     </p>
     <div class="divider"></div>
+
+    <div class="portfolio-showcase reveal">
+      <div class="portfolio-carousel">
+        <button class="carousel-btn prev" type="button" aria-label="Previous image">&#8249;</button>
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+            <article class="carousel-slide">
+              <img src="assets/portfolio-image/fvneral.jpeg.jpg" alt="Fvneral artwork cover" />
+              <div class="slide-caption">
+                <span>Fvneral</span>
+                <em>Cover concept</em>
+              </div>
+            </article>
+            <article class="carousel-slide">
+              <img src="assets/portfolio-image/serotonin.jpeg.jpg" alt="Serotonin album artwork" />
+              <div class="slide-caption">
+                <span>Serotonin</span>
+                <em>Visual study</em>
+              </div>
+            </article>
+            <article class="carousel-slide">
+              <img src="assets/portfolio-image/timeout.jpeg.jpg" alt="Timeout game over artwork" />
+              <div class="slide-caption">
+                <span>Timeout</span>
+                <em>Retro mood</em>
+              </div>
+            </article>
+          </div>
+        </div>
+        <button class="carousel-btn next" type="button" aria-label="Next image">&#8250;</button>
+      </div>
+
+      <div class="carousel-dots" aria-label="Carousel navigation">
+        <button class="dot active" type="button" aria-label="Show slide 1" data-index="0"></button>
+        <button class="dot" type="button" aria-label="Show slide 2" data-index="1"></button>
+        <button class="dot" type="button" aria-label="Show slide 3" data-index="2"></button>
+      </div>
+    </div>
+
     <div class="portfolio-grid">
 
       <!-- 
@@ -1186,6 +1398,48 @@
 
     function toggleMenu() {
       document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    // ── PORTFOLIO CAROUSEL ──
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+    const dots = Array.from(document.querySelectorAll('.dot'));
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+
+    if (track && slides.length && prevBtn && nextBtn) {
+      let currentIndex = 0;
+
+      function renderCarousel(index) {
+        currentIndex = (index + slides.length) % slides.length;
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === currentIndex);
+        });
+      }
+
+      prevBtn.addEventListener('click', () => renderCarousel(currentIndex - 1));
+      nextBtn.addEventListener('click', () => renderCarousel(currentIndex + 1));
+
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => renderCarousel(Number(dot.dataset.index)));
+      });
+
+      const autoAdvance = () => renderCarousel(currentIndex + 1);
+      let carouselTimer = setInterval(autoAdvance, 5000);
+
+      prevBtn.addEventListener('click', () => {
+        clearInterval(carouselTimer);
+        renderCarousel(currentIndex - 1);
+        carouselTimer = setInterval(autoAdvance, 5000);
+      });
+
+      nextBtn.addEventListener('click', () => {
+        clearInterval(carouselTimer);
+        renderCarousel(currentIndex + 1);
+        carouselTimer = setInterval(autoAdvance, 5000);
+      });
     }
   </script>
 </body>
