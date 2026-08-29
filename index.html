@@ -1161,21 +1161,18 @@
               <img src="assets/portfolio-image/fvneral.jpeg.jpg" alt="Fvneral artwork cover" />
               <div class="slide-caption">
                 <span>Fvneral</span>
-                <em>Cover concept</em>
               </div>
             </article>
             <article class="carousel-slide">
               <img src="assets/portfolio-image/serotonin.jpeg.jpg" alt="Serotonin album artwork" />
               <div class="slide-caption">
                 <span>Serotonin</span>
-                <em>Visual study</em>
               </div>
             </article>
             <article class="carousel-slide">
               <img src="assets/portfolio-image/timeout.jpeg.jpg" alt="Timeout game over artwork" />
               <div class="slide-caption">
                 <span>Timeout</span>
-                <em>Retro mood</em>
               </div>
             </article>
           </div>
@@ -1408,38 +1405,78 @@
     const nextBtn = document.querySelector('.carousel-btn.next');
 
     if (track && slides.length && prevBtn && nextBtn) {
-      let currentIndex = 0;
+      const firstClone = slides[0].cloneNode(true);
+      const lastClone = slides[slides.length - 1].cloneNode(true);
 
-      function renderCarousel(index) {
-        currentIndex = (index + slides.length) % slides.length;
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      track.appendChild(firstClone);
+      track.insertBefore(lastClone, slides[0]);
 
+      const allSlides = Array.from(track.children);
+      let currentIndex = 1;
+      let autoPlay;
+
+      function updateDots(index) {
+        const realIndex = (index - 1 + slides.length) % slides.length;
         dots.forEach((dot, i) => {
-          dot.classList.toggle('active', i === currentIndex);
+          dot.classList.toggle('active', i === realIndex);
         });
       }
 
-      prevBtn.addEventListener('click', () => renderCarousel(currentIndex - 1));
-      nextBtn.addEventListener('click', () => renderCarousel(currentIndex + 1));
+      function renderCarousel(index, withTransition = true) {
+        track.style.transition = withTransition ? 'transform 0.7s cubic-bezier(0.22, 1, 0.36, 1)' : 'none';
+        track.style.transform = `translateX(-${index * 100}%)`;
+        updateDots(index);
+      }
 
-      dots.forEach(dot => {
-        dot.addEventListener('click', () => renderCarousel(Number(dot.dataset.index)));
-      });
+      function handleLoop() {
+        if (currentIndex === allSlides.length - 1) {
+          currentIndex = 1;
+          renderCarousel(currentIndex, false);
+        }
 
-      const autoAdvance = () => renderCarousel(currentIndex + 1);
-      let carouselTimer = setInterval(autoAdvance, 5000);
+        if (currentIndex === 0) {
+          currentIndex = allSlides.length - 2;
+          renderCarousel(currentIndex, false);
+        }
+      }
+
+      function moveNext() {
+        currentIndex += 1;
+        renderCarousel(currentIndex);
+      }
+
+      function movePrev() {
+        currentIndex -= 1;
+        renderCarousel(currentIndex);
+      }
+
+      function startAutoPlay() {
+        clearInterval(autoPlay);
+        autoPlay = setInterval(moveNext, 5000);
+      }
 
       prevBtn.addEventListener('click', () => {
-        clearInterval(carouselTimer);
-        renderCarousel(currentIndex - 1);
-        carouselTimer = setInterval(autoAdvance, 5000);
+        movePrev();
+        startAutoPlay();
       });
 
       nextBtn.addEventListener('click', () => {
-        clearInterval(carouselTimer);
-        renderCarousel(currentIndex + 1);
-        carouselTimer = setInterval(autoAdvance, 5000);
+        moveNext();
+        startAutoPlay();
       });
+
+      dots.forEach((dot) => {
+        dot.addEventListener('click', () => {
+          currentIndex = Number(dot.dataset.index) + 1;
+          renderCarousel(currentIndex);
+          startAutoPlay();
+        });
+      });
+
+      track.addEventListener('transitionend', handleLoop);
+      renderCarousel(currentIndex, false);
+      updateDots(currentIndex);
+      startAutoPlay();
     }
   </script>
 </body>
