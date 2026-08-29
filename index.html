@@ -557,6 +557,103 @@
       color: var(--muted);
     }
 
+    .portfolio-item[data-project="logo-enhancement"] .portfolio-thumb {
+      background: linear-gradient(135deg, rgba(26, 46, 26, .35), rgba(45, 90, 45, .35)),
+        url('assets/portfolio-image/smart-meeting.jpeg') center/cover;
+    }
+
+    .project-modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      z-index: 1000;
+    }
+
+    .project-modal.open {
+      display: flex;
+    }
+
+    .project-modal__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(5, 7, 12, 0.8);
+      backdrop-filter: blur(6px);
+    }
+
+    .project-modal__dialog {
+      position: relative;
+      width: min(1100px, 100%);
+      max-height: 90vh;
+      overflow: auto;
+      background: rgba(12, 15, 22, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 1.5rem;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+    }
+
+    .project-modal__close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .project-modal__header {
+      margin-bottom: 1.5rem;
+      padding-right: 3rem;
+    }
+
+    .project-modal__header h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      margin: .25rem 0 .5rem;
+    }
+
+    .project-modal__header p {
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    .project-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .project-gallery figure {
+      margin: 0;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .project-gallery img {
+      display: block;
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      background: #0a0f16;
+    }
+
+    .project-gallery figcaption {
+      padding: .8rem 1rem;
+      font-size: .85rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
     .portfolio-showcase {
       margin-top: 2.5rem;
       display: grid;
@@ -1188,60 +1285,16 @@
     </div>
 
     <div class="portfolio-grid">
-
-      <!-- 
-      ════════════════════════════════════════════════
-      CARA GANTI GAMBAR:
-      Di setiap .portfolio-thumb, ubah class p1/p2/dst
-      dan tambahkan style="background: url('file.png') center/cover"
-      ════════════════════════════════════════════════
-    -->
-
-      <div class="portfolio-item reveal">
-        <div class="portfolio-thumb p1">
+      <div class="portfolio-item reveal project-card" data-project="logo-enhancement" tabindex="0" role="button"
+        aria-label="Open Logo Enhancement project">
+        <div class="portfolio-thumb">
           <div class="portfolio-label">
-            Success Meeting <span class="portfolio-tag">Logo Redraw</span>
+            Smart Meeting <span class="portfolio-tag">Logo Enhancement</span>
           </div>
         </div>
         <div class="portfolio-info">
-          <h4>Success Meeting — BEC</h4>
-          <p>Vector redraw · Pen Tool · SVG + PNG</p>
-        </div>
-      </div>
-
-      <div class="portfolio-item reveal">
-        <div class="portfolio-thumb p2">
-          <div class="portfolio-label">
-            Happy Meeting <span class="portfolio-tag">Logo Redraw</span>
-          </div>
-        </div>
-        <div class="portfolio-info">
-          <h4>Happy Meeting — BEC</h4>
-          <p>Shapes built from scratch · Pen Tool</p>
-        </div>
-      </div>
-
-      <div class="portfolio-item reveal">
-        <div class="portfolio-thumb p3">
-          <div class="portfolio-label">
-            Smart Meeting <span class="portfolio-tag">Logo Redraw</span>
-          </div>
-        </div>
-        <div class="portfolio-info">
-          <h4>Smart Meeting — BEC</h4>
-          <p>Pen Tool + globe asset integration</p>
-        </div>
-      </div>
-
-      <div class="portfolio-item reveal">
-        <div class="portfolio-thumb p4">
-          <div class="portfolio-label">
-            Active Meeting <span class="portfolio-tag">Logo Redraw</span>
-          </div>
-        </div>
-        <div class="portfolio-info">
-          <h4>Active Meeting — BEC</h4>
-          <p>Complex background · orbit elements</p>
+          <h4>Logo Enhancement — BEC 15677</h4>
+          <p>4 logo redesign variations grouped into 1 project</p>
         </div>
       </div>
 
@@ -1273,6 +1326,37 @@
 
     </div>
   </section>
+
+  <div class="project-modal" id="logoEnhancementModal" aria-hidden="true">
+    <div class="project-modal__backdrop" data-close-modal></div>
+    <div class="project-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="logoEnhancementTitle">
+      <button class="project-modal__close" type="button" aria-label="Close project details">×</button>
+      <div class="project-modal__header">
+        <p class="section-label">Project</p>
+        <h3 id="logoEnhancementTitle">Logo Enhancement</h3>
+        <p>Redesign untuk 4 varian logo meeting yang sebelumnya kurang jelas, disempurnakan menjadi bentuk logo yang
+          lebih bersih, modern, dan siap untuk penggunaan digital.</p>
+      </div>
+      <div class="project-gallery">
+        <figure>
+          <img src="assets/portfolio-image/success-meeting.jpeg" alt="Success Meeting logo redesign" />
+          <figcaption>Success Meeting</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/portfolio-image/happy-meeting.jpeg" alt="Happy Meeting logo redesign" />
+          <figcaption>Happy Meeting</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/portfolio-image/smart-meeting.jpeg" alt="Smart Meeting logo redesign" />
+          <figcaption>Smart Meeting</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/portfolio-image/active-meeting.jpeg" alt="Active Meeting logo redesign" />
+          <figcaption>Active Meeting</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
 
   <!-- CONTACT -->
   <section id="contact">
@@ -1477,6 +1561,48 @@
       renderCarousel(currentIndex, false);
       updateDots(currentIndex);
       startAutoPlay();
+    }
+
+    const projectCard = document.querySelector('.portfolio-item[data-project="logo-enhancement"]');
+    const projectModal = document.getElementById('logoEnhancementModal');
+
+    if (projectCard && projectModal) {
+      const closeModal = () => {
+        projectModal.classList.remove('open');
+        projectModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      };
+
+      const openModal = () => {
+        projectModal.classList.add('open');
+        projectModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      };
+
+      projectCard.addEventListener('click', openModal);
+      projectCard.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openModal();
+        }
+      });
+
+      const closeButton = projectModal.querySelector('.project-modal__close');
+      if (closeButton) {
+        closeButton.addEventListener('click', closeModal);
+      }
+
+      projectModal.addEventListener('click', (event) => {
+        if (event.target.matches('[data-close-modal]') || event.target === projectModal) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && projectModal.classList.contains('open')) {
+          closeModal();
+        }
+      });
     }
   </script>
 </body>
