@@ -5,9 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="iMKRXSHER — Freelance logo redraw and graphic design services from Indonesia. Clean vector files, fast turnaround." />
-  <meta name="keywords" content="logo redraw, freelance designer, vector design, Indonesia" />
-  <title>iMKRXSHER — Freelance Design</title>
+    content="iMKRXSHER — Typography-based logo design and custom wordmarks from Indonesia. Original type-driven identities built from refined font combinations and custom letterforms." />
+  <meta name="keywords" content="typography logo, custom wordmark design, font-based logo, Indonesian designer" />
+  <title>iMKRXSHER — Typography & Wordmark Design</title>
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap"
     rel="stylesheet" />
@@ -470,19 +470,21 @@
 
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.5rem;
       margin-top: 3rem;
+      max-width: 760px;
+      margin-inline: auto;
     }
 
     .portfolio-item {
-      border-radius: 16px;
+      border-radius: 14px;
       overflow: hidden;
-      border: 1px solid var(--border);
-      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.02);
       transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
       cursor: pointer;
-      box-shadow: 0 12px 28px rgba(8, 10, 18, 0.1);
+      box-shadow: 0 12px 28px rgba(8, 10, 18, 0.08);
     }
 
     .portfolio-item:hover {
@@ -506,10 +508,10 @@
 
     /* 
       ════════════════════════════════════════════════
-      CARA GANTI GAMBAR PORTFOLIO:
-      Tambahkan di setiap .portfolio-thumb:
-      background: url('nama-file.png') center/cover;
-      Atau ubah background-color jadi warna placeholder yang kamu mau
+      HOW TO CHANGE PORTFOLIO IMAGES:
+      Add to each .portfolio-thumb:
+      background: url('file-name.png') center/cover;
+      Or change the background-color to the placeholder color you want
       ════════════════════════════════════════════════
     */
     .portfolio-thumb.p1 {
@@ -545,27 +547,29 @@
       bottom: 0;
       left: 0;
       right: 0;
-      padding: .6rem 1rem;
-      background: rgba(13, 13, 20, 0.7);
+      padding: .55rem .9rem;
+      background: rgba(13, 13, 20, 0.8);
       backdrop-filter: blur(4px);
-      font-size: .75rem;
-      letter-spacing: .05em;
+      font-size: .72rem;
+      letter-spacing: .06em;
       color: var(--text);
       display: flex;
       align-items: center;
       justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .portfolio-tag {
-      font-size: .65rem;
-      padding: .2rem .5rem;
+      font-size: .62rem;
+      padding: .18rem .5rem;
       border-radius: 999px;
-      background: var(--violet);
-      color: #fff;
+      background: rgba(123, 47, 255, 0.15);
+      color: #d9c9ff;
+      border: 1px solid rgba(123, 47, 255, 0.3);
     }
 
     .portfolio-info {
-      padding: 1rem 1.2rem;
+      padding: .9rem 1rem 1rem;
     }
 
     .portfolio-info h4 {
@@ -1401,14 +1405,15 @@
   <section id="hero">
     <div id="particles"></div>
     <div class="hero-bg"></div>
-    <p class="hero-eyebrow reveal">Freelance Design Services</p>
+    <p class="hero-eyebrow reveal">Typography & Wordmark Design</p>
     <h1 class="hero-name reveal" id="heroName"></h1>
     <p class="hero-tagline reveal">
-      <strong>Logo redraw, vector design, & graphic work</strong> — turning blurry logos into clean, scalable visuals.
+      <strong>Custom wordmarks and typographic logos</strong> — built by combining typefaces into cleaner, more
+      original, and more balanced letterforms.
     </p>
     <div class="hero-cta reveal">
-      <a href="#portfolio" class="btn-primary">View Work</a>
-      <a href="#contact" class="btn-outline">Get in Touch</a>
+      <a href="#portfolio" class="btn-primary">View Portfolio</a>
+      <a href="#contact" class="btn-outline">Book a Project</a>
     </div>
   </section>
 
@@ -1424,22 +1429,21 @@
       <div class="about-text reveal">
         <h3>Hendra Kurniawan</h3>
         <p>
-          Freelance graphic designer. Operating under the brand
-          <strong>iMKRXSHER</strong>, I specialize in logo redraw and vector recreation, turning
-          low-resolution or pixelated logos into clean, print-ready files.
+          I build <strong>refined typographic identities</strong> — visual systems shaped by structure, rhythm, and the
+          careful fusion of typefaces into a new, memorable mark.
         </p>
         <p>
-          Every project is approached with attention to detail — whether it's a complex shape built
-          from scratch with Pen Tool, or integrating downloaded assets into a cohesive composition.
+          At iMKRXSHER, every concept is crafted to feel intentional and elevated: balanced proportions, strong
+          letterform logic, and a clean visual presence that holds up across digital, print, and brand touchpoints.
         </p>
         <div class="skills-wrap">
-          <span class="skill-tag">Photoshop</span>
+          <span class="skill-tag">Typographic Identity</span>
+          <span class="skill-tag">Wordmark Design</span>
+          <span class="skill-tag">Letterform Craft</span>
+          <span class="skill-tag">Brand System</span>
           <span class="skill-tag">Affinity Designer</span>
-          <span class="skill-tag">Canva</span>
+          <span class="skill-tag">Photoshop</span>
           <span class="skill-tag">Figma</span>
-          <span class="skill-tag">Pen Tool</span>
-          <span class="skill-tag">Logo Redraw</span>
-          <span class="skill-tag">Vector Design</span>
         </div>
       </div>
     </div>
@@ -1448,29 +1452,34 @@
   <!-- SERVICES -->
   <section id="services">
     <p class="section-label reveal">Services</p>
-    <h2 class="section-title reveal">What I Do</h2>
-    <p class="section-sub reveal">Clean, professional output — no blur, no pixelation.</p>
+    <h2 class="section-title reveal">Design Direction</h2>
+    <p class="section-sub reveal">Custom typography solutions that turn letterforms into memorable, original brand
+      marks.</p>
     <div class="divider"></div>
     <div class="services-grid">
       <div class="service-card reveal">
-        <span class="service-icon">🔁</span>
-        <h3>Logo Redraw</h3>
-        <p>Recreate blurry or pixelated logos into clean vector files using Pen Tool. Output: PNG + SVG.</p>
+        <span class="service-icon">✍️</span>
+        <h3>Wordmark Design</h3>
+        <p>Build refined wordmarks by combining typefaces and restructuring letterforms into a cleaner, more distinctive
+          identity.</p>
       </div>
       <div class="service-card reveal">
-        <span class="service-icon">✏️</span>
-        <h3>Vector Recreation</h3>
-        <p>Build shapes from scratch when no assets are available. Every curve, every node — handcrafted.</p>
+        <span class="service-icon">🔤</span>
+        <h3>Custom Letterforms</h3>
+        <p>Create more balanced and expressive typography where each character feels intentional, symmetrical, and
+          brand-ready.</p>
       </div>
       <div class="service-card reveal">
         <span class="service-icon">🎨</span>
-        <h3>Graphic Design</h3>
-        <p>Posters, banners, certificates, social media assets — designed to look great on screen and print.</p>
+        <h3>Brand Identity</h3>
+        <p>Shape a cohesive visual language with typography, spacing, tone, and supporting graphic elements around the
+          mark.</p>
       </div>
       <div class="service-card reveal">
         <span class="service-icon">📐</span>
-        <h3>Image Enhancement</h3>
-        <p>Upscale and sharpen low-res images using AI tools and Photoshop. Clean results, fast turnaround.</p>
+        <h3>Logo System</h3>
+        <p>Develop a scalable logo system that works across digital, social, packaging, and print environments without
+          losing clarity.</p>
       </div>
     </div>
   </section>
@@ -1478,8 +1487,9 @@
   <!-- PORTFOLIO -->
   <section id="portfolio">
     <p class="section-label reveal">Portfolio</p>
-    <h2 class="section-title reveal">Recent Work</h2>
-    <p class="section-sub reveal">Logo redraw projects for BEC 15677 — from blurry originals to clean vector files.
+    <h2 class="section-title reveal">Selected Work</h2>
+    <p class="section-sub reveal">Typography-led logo studies and wordmark explorations built from type combinations,
+      custom proportions, and refined letter construction.
     </p>
     <div class="divider"></div>
 
@@ -1520,41 +1530,15 @@
 
     <div class="portfolio-grid">
       <div class="portfolio-item reveal project-card" data-project="logo-enhancement" tabindex="0" role="button"
-        aria-label="Open Logo Enhancement project">
+        aria-label="Open Smart Meeting wordmark project">
         <div class="portfolio-thumb">
           <div class="portfolio-label">
-            Smart Meeting <span class="portfolio-tag">Logo Enhancement</span>
+            Smart Meeting <span class="portfolio-tag">Wordmark</span>
           </div>
         </div>
         <div class="portfolio-info">
-          <h4>Logo Enhancement — BEC 15677</h4>
-          <p>4 logo redesign variations grouped into 1 project</p>
-        </div>
-      </div>
-
-      <div class="portfolio-item reveal">
-        <div class="portfolio-thumb p5">
-          <span>Tambahkan<br>karya lainnya</span>
-          <div class="portfolio-label">
-            Project — <span class="portfolio-tag">Coming Soon</span>
-          </div>
-        </div>
-        <div class="portfolio-info">
-          <h4>Your Next Project Here</h4>
-          <p>Slot terbuka untuk karya berikutnya</p>
-        </div>
-      </div>
-
-      <div class="portfolio-item reveal">
-        <div class="portfolio-thumb p6">
-          <span>Tambahkan<br>karya lainnya</span>
-          <div class="portfolio-label">
-            Project — <span class="portfolio-tag">Coming Soon</span>
-          </div>
-        </div>
-        <div class="portfolio-info">
-          <h4>Your Next Project Here</h4>
-          <p>Slot terbuka untuk karya berikutnya</p>
+          <h4>Smart Meeting</h4>
+          <p>Typography-led identity exploration for a modern meeting brand.</p>
         </div>
       </div>
 
@@ -1567,9 +1551,9 @@
       <button class="project-modal__close" type="button" aria-label="Close project details">×</button>
       <div class="project-modal__header">
         <p class="section-label">Project</p>
-        <h3 id="logoEnhancementTitle">Logo Enhancement</h3>
-        <p>Redesign untuk 4 varian logo meeting yang sebelumnya kurang jelas, disempurnakan menjadi bentuk logo yang
-          lebih bersih, modern, dan siap untuk penggunaan digital.</p>
+        <h3 id="logoEnhancementTitle">Smart Meeting</h3>
+        <p>A typography-driven wordmark concept built by combining reference fonts and reworking the letter structure
+          into a more modern, symmetrical, and balanced identity.</p>
       </div>
       <div class="project-gallery">
         <figure>
@@ -1599,8 +1583,9 @@
     <div class="divider"></div>
     <div class="contact-wrap reveal">
       <div class="contact-left">
-        <h3>Got a project<br>in mind?</h3>
-        <p>Logo blurry? Need a clean vector file? Reach out — let's get it done.</p>
+        <h3>Need a logo<br>with a stronger identity?</h3>
+        <p>Looking for a custom wordmark or typography-led brand mark? Let’s shape a concept that feels original and
+          memorable.</p>
         <div class="contact-links" aria-label="Social media links">
           <a href="https://www.instagram.com/imkrxsher?igsi=enUxZWRxYzV0djI3" target="_blank" rel="noreferrer"
             class="contact-link" aria-label="Instagram">
@@ -1629,6 +1614,14 @@
               </svg>
             </span>
           </a>
+          <a href="https://t.me/imkrxsher" target="_blank" rel="noreferrer" class="contact-link" aria-label="Telegram">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M21.3 5.2c.3-.9-1-.7-1-.7l-15.3 5.8c-.8.3-.8.8-.1 1l3.6 1.1 1.2 3.9c.1.4.6.5 1 .2l2.3-1.9 3.2 2.6c.6.5 1 .2 1.2-.5l2.1-9.4zm-4.1 2.3-7.9 5.1.7 2.1 1.7-1.4c.3-.2.7-.2.9.1l1.1 1.6 1.1-4.8c.1-.3-.2-.5-.6-.4z" />
+              </svg>
+            </span>
+          </a>
           <a href="mailto:hendrakurniawan.id@proton.me" class="contact-link" aria-label="Email">
             <span class="icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1640,23 +1633,23 @@
         </div>
       </div>
       <form class="contact-right" action="https://formspree.io/f/mqpkkejy" method="POST">
-        <input type="hidden" name="_subject" value="Pesan project dari portfolio iMKRXSHER" />
-        <label class="sr-only" for="contact-name">Nama kamu</label>
-        <input id="contact-name" type="text" name="name" placeholder="Nama kamu" required />
-        <label class="sr-only" for="contact-email">Email kamu</label>
-        <input id="contact-email" type="email" name="email" placeholder="Email kamu" required />
-        <label class="sr-only" for="contact-service">Layanan yang dibutuhkan</label>
+        <input type="hidden" name="_subject" value="Project inquiry from iMKRXSHER portfolio" />
+        <label class="sr-only" for="contact-name">Your name</label>
+        <input id="contact-name" type="text" name="name" placeholder="Your name" required />
+        <label class="sr-only" for="contact-email">Your email</label>
+        <input id="contact-email" type="email" name="email" placeholder="Your email" required />
+        <label class="sr-only" for="contact-service">Required service</label>
         <select id="contact-service" name="service" required>
-          <option value="" selected disabled>Pilih layanan</option>
-          <option value="Logo Redraw">Logo Redraw</option>
-          <option value="Vector Recreation">Vector Recreation</option>
-          <option value="Graphic Design">Graphic Design</option>
-          <option value="Image Enhancement">Image Enhancement</option>
-          <option value="Other">Lainnya</option>
+          <option value="" selected disabled>Select a service</option>
+          <option value="Wordmark Design">Wordmark Design</option>
+          <option value="Custom Letterforms">Custom Letterforms</option>
+          <option value="Brand Identity">Brand Identity</option>
+          <option value="Logo System">Logo System</option>
+          <option value="Other">Other</option>
         </select>
-        <label class="sr-only" for="contact-message">Detail project</label>
-        <textarea id="contact-message" name="message" placeholder="Ceritain projectnya..." required></textarea>
-        <button type="submit" class="btn-primary">Kirim Pesan</button>
+        <label class="sr-only" for="contact-message">Project details</label>
+        <textarea id="contact-message" name="message" placeholder="Tell me about your project..." required></textarea>
+        <button type="submit" class="btn-primary">Send Message</button>
       </form>
     </div>
   </section>
