@@ -1,0 +1,21 @@
+{
+    "name": "iMKRXSHER — Typography & Wordmark Design",
+    "short_name": "iMKRXSHER",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0D0D14",
+    "theme_color": "#0D0D14",
+    "description": "Refined typographic identities & custom wordmarks by iMKRXSHER.",
+    "icons": [
+        {
+            "src": "assets/portfolio-image/icon/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/portfolio-image/icon/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
