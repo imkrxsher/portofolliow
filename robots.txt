@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://imkrxsher.github.io/portofolliow/sitemap.xml
