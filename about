@@ -4,7 +4,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iMKRXSHER — About</title>
+  <meta name="description"
+    content="About iMKRXSHER — Hendra Kurniawan, a typography and wordmark designer based in Pare, East Java, focused on logo redraw, letterforms, and visual identity work." />
+  <meta name="keywords"
+    content="about imkrxsher, typography designer, wordmark designer, logo redraw, brand identity, Hendra Kurniawan" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Hendra Kurniawan" />
+  <title>About iMKRXSHER | Typography Designer</title>
+  <link rel="canonical" href="https://imkrxsher.github.io/portofolliow/about.html" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Hendra Kurniawan",
+      "alternateName": "iMKRXSHER",
+      "jobTitle": "Typography & Wordmark Designer",
+      "description": "Freelance designer focused on typography, logo redraw, and visual identity work.",
+      "url": "https://imkrxsher.github.io/portofolliow/about.html",
+      "sameAs": [
+        "https://github.com/imkrxsher",
+        "https://www.instagram.com/imkrxsher",
+        "https://www.facebook.com/share/1BjETNqm7u/",
+        "https://t.me/imkrxsher"
+      ],
+      "knowsAbout": [
+        "Typography design",
+        "Wordmark design",
+        "Logo redraw",
+        "Brand identity",
+        "Visual communication"
+      ]
+    }
+  </script>
+  <meta property="og:title" content="About iMKRXSHER | Typography Designer" />
+  <meta property="og:description"
+    content="Learn more about Hendra Kurniawan, also known as iMKRXSHER, and his work in typography, wordmark design, and logo redraw." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://imkrxsher.github.io/portofolliow/about.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About iMKRXSHER | Typography Designer" />
+  <meta name="twitter:description"
+    content="Learn more about Hendra Kurniawan, also known as iMKRXSHER, and his work in typography, wordmark design, and logo redraw." />
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap"
     rel="stylesheet" />
