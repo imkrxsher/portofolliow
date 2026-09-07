@@ -109,6 +109,30 @@
             border-bottom: 2px solid var(--violet);
         }
 
+        .hamburger {
+            display: none;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 5px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 18px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
         .page-hero {
             padding: 10rem 6vw 5rem;
             background: var(--surface);
@@ -424,12 +448,49 @@
             .nav-links {
                 display: none;
             }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-menu {
+                position: fixed;
+                top: 74px;
+                left: 6vw;
+                right: 6vw;
+                z-index: 99;
+                display: none;
+                flex-direction: column;
+                gap: .4rem;
+                padding: .8rem;
+                background: rgba(21, 21, 31, .98);
+                border: 1px solid var(--border);
+                border-radius: 12px;
+                box-shadow: 0 18px 40px rgba(0, 0, 0, .35);
+            }
+
+            .mobile-menu.open {
+                display: flex;
+            }
+
+            .mobile-menu a {
+                color: var(--text);
+                text-decoration: none;
+                padding: .8rem 1rem;
+                border-radius: 8px;
+            }
+
+            .mobile-menu a:hover {
+                background: var(--card);
+            }
         }
     </style>
 </head>
 
 <body>
     <nav><a href="index.html" class="nav-logo">iMKRXSHER</a>
+        <div class="hamburger" id="hamburger" role="button" tabindex="0" aria-expanded="false" aria-label="Open menu"
+            onclick="toggleMenu()"><span></span><span></span><span></span></div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
@@ -437,6 +498,8 @@
             <li><a href="contact.html" class="active">Contact</a></li>
         </ul>
     </nav>
+    <div class="mobile-menu" id="mobileMenu"><a href="index.html">Home</a><a href="about.html">About</a><a
+            href="portfolio.html">Portfolio</a><a href="contact.html">Contact</a></div>
     <div class="page-hero">
         <p class="page-label reveal">Contact</p>
         <h1 class="page-title reveal">Let's Work<br>Together</h1>
@@ -556,7 +619,14 @@
     <footer><span class="logo">iMKRXSHER</span>
         <p>© 2026 iMKRXSHER — Freelance Design Services</p>
     </footer>
-    <script>const reveals = document.querySelectorAll('.reveal'); const obs = new IntersectionObserver((entries) => { entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); obs.unobserve(e.target); } }); }, { threshold: .1 }); reveals.forEach(r => obs.observe(r));</script>
+    <script>
+        const mobileMenu = document.getElementById('mobileMenu');
+        const hamburger = document.getElementById('hamburger');
+        function toggleMenu() { const isOpen = mobileMenu.classList.toggle('open'); hamburger.setAttribute('aria-expanded', String(isOpen)); }
+        mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => { mobileMenu.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); }));
+        hamburger.addEventListener('keydown', (event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleMenu(); } });
+        const reveals = document.querySelectorAll('.reveal'); const obs = new IntersectionObserver((entries) => { entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); obs.unobserve(e.target); } }); }, { threshold: .1 }); reveals.forEach(r => obs.observe(r));
+    </script>
 </body>
 
 </html>
