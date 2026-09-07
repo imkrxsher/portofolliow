@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description"
-        content="Contact iMKRXSHER for typography, wordmark, logo redraw, and brand identity projects based in Pare, East Java, Indonesia." />
+        content="Contact iMKRXSHER for typography, wordmark, logo redraw, and brand identity projects." />
     <meta name="keywords"
         content="contact imkrxsher, typography designer contact, wordmark designer, logo redraw service, brand identity consultation" />
     <meta name="robots" content="index, follow" />
@@ -206,6 +206,12 @@
             justify-content: center;
             font-size: 1.2rem;
             flex-shrink: 0;
+        }
+
+        .contact-link .icon svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
         }
 
         .contact-link div h4 {
@@ -413,31 +419,39 @@
                 <p>Logo blurry? Need a clean vector file? Reach out through any of the channels below.</p>
                 <div class="contact-links"><a href="https://wa.me/6285334776315" target="_blank" rel="noreferrer"
                         class="contact-link">
-                        <div class="icon">💬</div>
+                        <div class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2a9.9 9.9 0 0 0-8.56 14.89L2 22l5.27-1.38A10 10 0 1 0 12 2Zm0 2a8 8 0 0 1 6.93 12l-.28.48.75 2.72-2.72-.71-.47.28A8 8 0 1 1 12 4Zm-3.2 4.25c-.2 0-.52.08-.8.4-.28.31-1.06 1.04-1.06 2.54s1.09 2.95 1.23 3.15c.15.2 2.1 3.36 5.2 4.58 2.58 1.01 3.1.81 3.66.76.56-.05 1.81-.74 2.07-1.45.25-.71.25-1.32.18-1.45-.08-.13-.28-.2-.58-.35-.3-.15-1.81-.9-2.09-1-.28-.1-.48-.15-.68.15-.2.3-.76 1-.94 1.2-.18.2-.35.23-.66.08-.3-.15-1.28-.47-2.44-1.5-.9-.8-1.5-1.78-1.68-2.08-.18-.3-.02-.46.14-.61.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.65-.96-2.25-.25-.59-.5-.51-.68-.51Z" />
+                            </svg>
+                        </div>
                         <div>
                             <h4>WhatsApp</h4>
                             <p>+62 853-3477-6315</p>
                         </div>
                     </a><a href="https://instagram.com/imkrxsher" target="_blank" rel="noreferrer" class="contact-link">
-                        <div class="icon">📸</div>
+                        <div class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5Zm5.5-3.1a1.1 1.1 0 1 1-1.1 1.1 1.1 0 0 1 1.1-1.1Z" />
+                            </svg>
+                        </div>
                         <div>
                             <h4>Instagram</h4>
                             <p>@imkrxsher</p>
                         </div>
                     </a><a href="mailto:hendrakurniawan.id@proton.me" class="contact-link">
-                        <div class="icon">✉️</div>
+                        <div class="icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M3 5.5A2.5 2.5 0 0 1 5.5 3h13A2.5 2.5 0 0 1 21 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 18.5v-13Zm2 .7v.34l7 5.08 7-5.08V6.2l-7 5.08-7-5.08Zm14 2.8-6.41 4.65a1 1 0 0 1-1.18 0L5 9v9.5a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5V9Z" />
+                            </svg>
+                        </div>
                         <div>
                             <h4>Email</h4>
                             <p>hendrakurniawan.id@proton.me</p>
                         </div>
                     </a>
-                    <div class="contact-link" style="cursor:default;">
-                        <div class="icon">📍</div>
-                        <div>
-                            <h4>Location</h4>
-                            <p>Pare, Kediri — East Java, Indonesia</p>
-                        </div>
-                    </div>
                 </div>
             </div>
             <form class="contact-form reveal" action="https://formspree.io/f/mqpkkejy" method="POST">
@@ -486,7 +500,7 @@
         </div>
     </section>
     <footer><span class="logo">iMKRXSHER</span>
-        <p>© 2026 iMKRXSHER — Freelance Design Services · Pare, East Java</p>
+        <p>© 2026 iMKRXSHER — Freelance Design Services</p>
     </footer>
     <script>const reveals = document.querySelectorAll('.reveal'); const obs = new IntersectionObserver((entries) => { entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); obs.unobserve(e.target); } }); }, { threshold: .1 }); reveals.forEach(r => obs.observe(r));</script>
 </body>
