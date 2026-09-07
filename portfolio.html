@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Portfolio of iMKRXSHER — typography, wordmark, logo redraw, and brand identity projects." />
+    <meta name="author" content="iMKRXSHER" />
+    <title>Portfolio | iMKRXSHER | Typography & Wordmark Design</title>
+    <link rel="canonical" href="https://imkrxsher.github.io/portofolliow/portfolio.html" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --bg: #0D0D14;
+            --surface: #15151F;
+            --card: #1C1C2A;
+            --violet: #7B2FFF;
+            --cyan: #00D4FF;
+            --text: #F0EFF8;
+            --muted: #6B6B8A;
+            --border: #2A2A3C;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.2rem 6vw;
+            background: rgba(13, 13, 20, .85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo,
+        footer .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--violet), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-logo {
+            font-size: 1.2rem;
+            letter-spacing: .05em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: .9rem;
+            font-weight: 500;
+            padding-bottom: 2px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text);
+        }
+
+        .nav-links a.active {
+            border-bottom: 2px solid var(--violet);
+        }
+
+        .page-hero {
+            padding: 10rem 6vw 5rem;
+            background: var(--surface);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero:before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 50% 80% at 80% 50%, rgba(0, 212, 255, .08), transparent 70%);
+        }
+
+        .page-label,
+        .section-label {
+            font-size: .75rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--violet);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .page-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1;
+        }
+
+        .page-sub {
+            color: var(--muted);
+            margin-top: 1rem;
+            max-width: 480px;
+        }
+
+        section {
+            padding: 5rem 6vw;
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, var(--violet), transparent);
+            margin-bottom: 3rem;
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: .8rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .filter-btn {
+            padding: .4rem 1.2rem;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--muted);
+            font-size: .85rem;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--violet);
+            border-color: var(--violet);
+            color: #fff;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .portfolio-item.is-hidden {
+            display: none;
+        }
+
+        .portfolio-item {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--card);
+            transition: transform .2s, border-color .2s;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-6px);
+            border-color: var(--cyan);
+        }
+
+        .portfolio-thumb {
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .p1 {
+            background-image: linear-gradient(135deg, rgba(26, 26, 62, .35), rgba(45, 27, 105, .35)), url('assets/portfolio-image/success-meeting.jpeg');
+        }
+
+        .p2 {
+            background-image: linear-gradient(135deg, rgba(13, 33, 55, .35), rgba(26, 74, 107, .35)), url('assets/portfolio-image/happy-meeting.jpeg');
+        }
+
+        .p3 {
+            background-image: linear-gradient(135deg, rgba(26, 46, 26, .35), rgba(45, 90, 45, .35)), url('assets/portfolio-image/smart-meeting.jpeg');
+        }
+
+        .p4 {
+            background-image: linear-gradient(135deg, rgba(46, 26, 26, .35), rgba(107, 45, 45, .35)), url('assets/portfolio-image/active-meeting.jpeg');
+        }
+
+        .p5 {
+            background: linear-gradient(135deg, #1a1a2e, #4a1a6b);
+        }
+
+        .p6 {
+            background: linear-gradient(135deg, #1a2a2e, #1a5a6b);
+        }
+
+        .portfolio-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: .6rem 1rem;
+            background: rgba(13, 13, 20, .8);
+            font-size: .75rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .portfolio-tag {
+            font-size: .65rem;
+            padding: .2rem .5rem;
+            border-radius: 999px;
+            background: var(--violet);
+            color: #fff;
+        }
+
+        .portfolio-info {
+            padding: 1.2rem 1.5rem;
+        }
+
+        .portfolio-info h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: .3rem;
+        }
+
+        .portfolio-info p,
+        footer p {
+            font-size: .82rem;
+            color: var(--muted);
+        }
+
+        footer {
+            padding: 2rem 6vw;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        footer .logo {
+            font-size: 1rem;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media(max-width:768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav><a href="index.html" class="nav-logo">iMKRXSHER</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html" class="active">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="page-hero">
+        <p class="page-label reveal">Portfolio</p>
+        <h1 class="page-title reveal">Recent Work</h1>
+        <p class="page-sub reveal">Logo redraw & graphic design projects — from blurry originals to clean vector files.
+        </p>
+    </div>
+    <section>
+        <div class="filter-bar reveal"><button class="filter-btn active" type="button"
+                data-filter="all">All</button><button class="filter-btn" type="button" data-filter="logo-redraw">Logo
+                Redraw</button><button class="filter-btn" type="button" data-filter="graphic-design">Graphic
+                Design</button><button class="filter-btn" type="button" data-filter="vector">Vector</button></div>
+        <div class="divider"></div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item reveal" data-category="logo-redraw vector">
+                <div class="portfolio-thumb p1">
+                    <div class="portfolio-label">Success Meeting <span class="portfolio-tag">Logo Redraw</span></div>
+                </div>
+                <div class="portfolio-info">
+                    <h4>Success Meeting — BEC Pare</h4>
+                    <p>Aset tersedia · Redraw & clean-up · PNG</p>
+                </div>
+            </div>
+            <div class="portfolio-item reveal" data-category="logo-redraw vector">
+                <div class="portfolio-thumb p2">
+                    <div class="portfolio-label">Happy Meeting <span class="portfolio-tag">Logo Redraw</span></div>
+                </div>
+                <div class="portfolio-info">
+                    <h4>Happy Meeting — BEC Pare</h4>
+                    <p>Shapes built from scratch · Pen Tool · PNG</p>
+                </div>
+            </div>
+            <div class="portfolio-item reveal" data-category="logo-redraw vector">
+                <div class="portfolio-thumb p3">
+                    <div class="portfolio-label">Smart Meeting <span class="portfolio-tag">Logo Redraw</span></div>
+                </div>
+                <div class="portfolio-info">
+                    <h4>Smart Meeting — BEC Pare</h4>
+                    <p>Pen Tool + globe asset integration · PNG</p>
+                </div>
+            </div>
+            <div class="portfolio-item reveal" data-category="logo-redraw vector">
+                <div class="portfolio-thumb p4">
+                    <div class="portfolio-label">Active Meeting <span class="portfolio-tag">Logo Redraw</span></div>
+                </div>
+                <div class="portfolio-info">
+                    <h4>Active Meeting — BEC Pare</h4>
+                    <p>Complex background · orbit elements · PNG</p>
+                </div>
+            </div>
+            <div class="portfolio-item reveal" data-category="graphic-design">
+                <div class="portfolio-thumb p5"><span>Tambahkan karya lainnya</span>
+                    <div class="portfolio-label">Coming Soon <span class="portfolio-tag">Next Project</span></div>
+                </div>
+                <div class="portfolio-info">
+                    <h4>Your Next Project Here</h4>
+                    <p>Slot terbuka untuk karya berikutnya</p>
+                </div>
+            </div>
+            <div class="portfolio-item reveal" data-category="graphic-design">
+                <div class="portfolio-thumb p6"><span>Tambahkan karya lainnya</span>
+                    <div class="portfolio-label">Coming Soon <span class="portfolio-tag">Next Project</span></div>
+                </div>
+                <div class="portfolio-info">
+                    <h4>Your Next Project Here</h4>
+                    <p>Slot terbuka untuk karya berikutnya</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer><span class="logo">iMKRXSHER</span>
+        <p>© 2026 iMKRXSHER — Freelance Design Services · Pare, East Java</p>
+    </footer>
+    <script>
+        const reveals = document.querySelectorAll('.reveal');
+        const obs = new IntersectionObserver((entries) => { entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); obs.unobserve(e.target); } }); }, { threshold: .1 });
+        reveals.forEach(r => obs.observe(r));
+
+        const filterButtons = document.querySelectorAll('[data-filter]');
+        const portfolioItems = document.querySelectorAll('[data-category]');
+        filterButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                const filter = button.dataset.filter;
+                filterButtons.forEach((item) => item.classList.toggle('active', item === button));
+                portfolioItems.forEach((item) => {
+                    const matches = filter === 'all' || item.dataset.category.split(' ').includes(filter);
+                    item.classList.toggle('is-hidden', !matches);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
