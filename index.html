@@ -68,10 +68,12 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/portfolio-image/icon/favicon-16x16.png" />
   <link rel="icon" type="image/x-icon" href="assets/portfolio-image/icon/favicon.ico" />
   <link rel="manifest" href="site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap"
     rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
   <style>
     :root {
       --bg: #0D0D14;
@@ -376,6 +378,8 @@
     /* ── SECTIONS ── */
     section {
       padding: 6rem 6vw;
+      content-visibility: auto;
+      contain-intrinsic-size: 700px;
     }
 
     .section-label {
@@ -1433,6 +1437,15 @@
       opacity: 1;
       transform: none;
     }
+
+    /* Home keeps the landing experience focused; detail sections live on their own pages. */
+    #about,
+    #services,
+    #portfolio,
+    #contact,
+    .project-modal {
+      display: none;
+    }
   </style>
 </head>
 
@@ -1440,22 +1453,24 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#hero" class="nav-logo">iMKRXSHER</a>
+    <a href="index.html" class="nav-logo">iMKRXSHER</a>
     <div class="hamburger" onclick="toggleMenu()" id="hamburger">
       <span></span>
       <span></span>
       <span></span>
     </div>
     <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="#services">Services</a></li>
+      <li><a href="services.html">Services</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
   <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" onclick="toggleMenu()">Home</a>
     <a href="about.html" onclick="toggleMenu()">About</a>
-    <a href="#services" onclick="toggleMenu()">Services</a>
+    <a href="services.html" onclick="toggleMenu()">Services</a>
     <a href="portfolio.html" onclick="toggleMenu()">Portfolio</a>
     <a href="contact.html" onclick="toggleMenu()">Contact</a>
   </div>
@@ -1559,19 +1574,22 @@
         <div class="carousel-viewport">
           <div class="carousel-track">
             <article class="carousel-slide">
-              <img src="assets/portfolio-image/fvneral.jpeg.jpg" alt="Fvneral artwork cover" />
+              <img src="assets/portfolio-image/fvneral.jpeg.jpg" alt="Fvneral artwork cover" loading="lazy"
+                decoding="async" />
               <div class="slide-caption">
                 <span>Fvneral</span>
               </div>
             </article>
             <article class="carousel-slide">
-              <img src="assets/portfolio-image/serotonin.jpeg.jpg" alt="Serotonin album artwork" />
+              <img src="assets/portfolio-image/serotonin.jpeg.jpg" alt="Serotonin album artwork" loading="lazy"
+                decoding="async" />
               <div class="slide-caption">
                 <span>Serotonin</span>
               </div>
             </article>
             <article class="carousel-slide">
-              <img src="assets/portfolio-image/timeout.jpeg.jpg" alt="Timeout game over artwork" />
+              <img src="assets/portfolio-image/timeout.jpeg.jpg" alt="Timeout game over artwork" loading="lazy"
+                decoding="async" />
               <div class="slide-caption">
                 <span>Timeout</span>
               </div>
@@ -1617,19 +1635,23 @@
       </div>
       <div class="project-gallery">
         <figure>
-          <img src="assets/portfolio-image/success-meeting.jpeg" alt="Success Meeting logo redesign" loading="eager" />
+          <img src="assets/portfolio-image/success-meeting.jpeg" alt="Success Meeting logo redesign" loading="lazy"
+            decoding="async" />
           <figcaption>Success Meeting</figcaption>
         </figure>
         <figure>
-          <img src="assets/portfolio-image/happy-meeting.jpeg" alt="Happy Meeting logo redesign" loading="eager" />
+          <img src="assets/portfolio-image/happy-meeting.jpeg" alt="Happy Meeting logo redesign" loading="lazy"
+            decoding="async" />
           <figcaption>Happy Meeting</figcaption>
         </figure>
         <figure>
-          <img src="assets/portfolio-image/smart-meeting.jpeg" alt="Smart Meeting logo redesign" loading="eager" />
+          <img src="assets/portfolio-image/smart-meeting.jpeg" alt="Smart Meeting logo redesign" loading="lazy"
+            decoding="async" />
           <figcaption>Smart Meeting</figcaption>
         </figure>
         <figure>
-          <img src="assets/portfolio-image/active-meeting.jpeg" alt="Active Meeting logo redesign" loading="eager" />
+          <img src="assets/portfolio-image/active-meeting.jpeg" alt="Active Meeting logo redesign" loading="lazy"
+            decoding="async" />
           <figcaption>Active Meeting</figcaption>
         </figure>
       </div>
@@ -1749,43 +1771,57 @@
     reveals.forEach(r => obs.observe(r));
 
     // ── PARTICLES ──
-    tsParticles.load("particles", {
-      fullScreen: { enable: false },
-      background: { color: { value: "transparent" } },
-      fpsLimit: 60,
-      particles: {
-        number: { value: 60, density: { enable: true, area: 900 } },
-        color: { value: ["#7B2FFF", "#00D4FF", "#ffffff"] },
-        shape: { type: "circle" },
-        opacity: {
-          value: 0.4,
-          animation: { enable: true, speed: 0.8, minimumValue: 0.1, sync: false }
+    function startParticles() {
+      if (!window.tsParticles) return;
+
+      const isSmallScreen = window.matchMedia('(max-width: 768px)').matches;
+      tsParticles.load("particles", {
+        fullScreen: { enable: false },
+        background: { color: { value: "transparent" } },
+        fpsLimit: 45,
+        particles: {
+          number: { value: isSmallScreen ? 26 : 42, density: { enable: true, area: 900 } },
+          color: { value: ["#7B2FFF", "#00D4FF", "#ffffff"] },
+          shape: { type: "circle" },
+          opacity: {
+            value: 0.4,
+            animation: { enable: true, speed: 0.8, minimumValue: 0.1, sync: false }
+          },
+          size: {
+            value: { min: 1, max: 3 },
+            animation: { enable: true, speed: 2, minimumValue: 0.5, sync: false }
+          },
+          links: {
+            enable: true, distance: 130, color: "#7B2FFF",
+            opacity: 0.15, width: 1
+          },
+          move: {
+            enable: true, speed: 0.6, direction: "none",
+            random: true, straight: false, outModes: { default: "out" }
+          }
         },
-        size: {
-          value: { min: 1, max: 3 },
-          animation: { enable: true, speed: 2, minimumValue: 0.5, sync: false }
+        interactivity: {
+          events: {
+            onHover: { enable: true, mode: "grab" },
+            onClick: { enable: true, mode: "push" }
+          },
+          modes: {
+            grab: { distance: 160, links: { opacity: 0.5 } },
+            push: { quantity: 3 }
+          }
         },
-        links: {
-          enable: true, distance: 130, color: "#7B2FFF",
-          opacity: 0.15, width: 1
-        },
-        move: {
-          enable: true, speed: 0.6, direction: "none",
-          random: true, straight: false, outModes: { default: "out" }
-        }
-      },
-      interactivity: {
-        events: {
-          onHover: { enable: true, mode: "grab" },
-          onClick: { enable: true, mode: "push" }
-        },
-        modes: {
-          grab: { distance: 160, links: { opacity: 0.5 } },
-          push: { quantity: 3 }
-        }
-      },
-      detectRetina: true
-    });
+        detectRetina: true
+      });
+    }
+
+    window.addEventListener('load', () => {
+      const start = () => startParticles();
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(start, { timeout: 1800 });
+      } else {
+        setTimeout(start, 400);
+      }
+    }, { once: true });
 
     const mobileMenu = document.getElementById('mobileMenu');
     const hamburger = document.getElementById('hamburger');
@@ -1820,18 +1856,6 @@
         });
       });
     }
-
-    const projectImages = [
-      'assets/portfolio-image/success-meeting.jpeg',
-      'assets/portfolio-image/happy-meeting.jpeg',
-      'assets/portfolio-image/smart-meeting.jpeg',
-      'assets/portfolio-image/active-meeting.jpeg'
-    ];
-
-    projectImages.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
 
     // ── PORTFOLIO CAROUSEL ──
     const track = document.querySelector('.carousel-track');
