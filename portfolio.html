@@ -311,6 +311,30 @@
             transform: none;
         }
 
+        .hamburger {
+            display: none;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 5px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 18px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
         @media(max-width:768px) {
             .nav-links {
                 display: none;
@@ -352,29 +376,6 @@
             }
         }
 
-        .hamburger {
-            display: none;
-            width: 40px;
-            height: 40px;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 5px;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        .hamburger span {
-            width: 18px;
-            height: 2px;
-            background: var(--text);
-            border-radius: 2px;
-        }
-
-        .mobile-menu {
-            display: none;
-        }
     </style>
 </head>
 
