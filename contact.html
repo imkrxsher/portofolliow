@@ -325,7 +325,30 @@
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1.3rem;
             font-weight: 600;
+            margin-bottom: .55rem;
+        }
+
+        .form-note {
             margin-bottom: 1.5rem;
+            color: var(--muted);
+            font-size: .8rem;
+            line-height: 1.5;
+        }
+
+        .form-warning {
+            display: none;
+            margin: 0 0 1rem;
+            padding: .75rem .9rem;
+            border: 1px solid rgba(255, 184, 77, .45);
+            border-radius: 8px;
+            background: rgba(255, 184, 77, .08);
+            color: #ffd18a;
+            font-size: .8rem;
+            line-height: 1.5;
+        }
+
+        .form-warning.visible {
+            display: block;
         }
 
         .form-group {
@@ -615,14 +638,15 @@
             <form class="contact-form reveal"
                 action="https://script.google.com/macros/s/AKfycbz1K1wlzynNT0tNJKcs31zSrn6qWunixexSHj8rU1myUDJbhkhbJSrZXbctHUoLl3-L4Q/exec"
                 method="POST">
-                <h3>Send a Message</h3><input type="hidden" name="_subject"
+                <h3>Send a Message</h3>
+                <p class="form-note">Please fill in every field correctly before sending your message.</p>
+                <p class="form-warning" id="formWarning" role="alert">Please check the highlighted fields and make sure all information is filled in correctly.</p>
+                <input type="hidden" name="_subject"
                     value="Pesan project dari halaman contact iMKRXSHER" />
                 <div class="form-group"><label for="contact-name">Your Name</label><input id="contact-name" type="text"
                         name="name" placeholder="John Doe" required /></div>
-                <div class="form-group"><label for="contact-email">Email / WhatsApp</label><input id="contact-email"
-                        type="text" name="email" placeholder="email or WA number" required /></div>
-                <div class="form-group"><label for="contact-whatsapp">WhatsApp</label><input id="contact-whatsapp"
-                        type="tel" name="whatsapp" placeholder="WhatsApp number" required /></div>
+                <div class="form-group"><label for="contact-email">Email</label><input id="contact-email" type="email"
+                        name="email" placeholder="you@example.com" required /></div>
                 <div class="form-group"><label for="contact-service">Service Needed</label><select id="contact-service"
                         name="service" required>
                         <option value="" selected disabled>Select a service</option>
@@ -669,9 +693,23 @@
     <script>
         const mobileMenu = document.getElementById('mobileMenu');
         const hamburger = document.getElementById('hamburger');
+        const contactForm = document.querySelector('.contact-form');
+        const formWarning = document.getElementById('formWarning');
         function toggleMenu() { const isOpen = mobileMenu.classList.toggle('open'); hamburger.setAttribute('aria-expanded', String(isOpen)); }
         mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => { mobileMenu.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); }));
         hamburger.addEventListener('keydown', (event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleMenu(); } });
+        contactForm.addEventListener('submit', (event) => {
+            if (!contactForm.checkValidity()) {
+                event.preventDefault();
+                formWarning.classList.add('visible');
+                contactForm.reportValidity();
+            } else {
+                formWarning.classList.remove('visible');
+            }
+        });
+        contactForm.addEventListener('input', () => {
+            if (contactForm.checkValidity()) formWarning.classList.remove('visible');
+        });
         const reveals = document.querySelectorAll('.reveal'); const obs = new IntersectionObserver((entries) => { entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); obs.unobserve(e.target); } }); }, { threshold: .1 }); reveals.forEach(r => obs.observe(r));
     </script>
 </body>
