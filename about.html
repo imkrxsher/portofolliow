@@ -285,6 +285,173 @@
             background: var(--surface);
         }
 
+        .team-section {
+            background: var(--bg);
+            overflow: hidden;
+        }
+
+        .team-carousel {
+            position: relative;
+            max-width: 960px;
+            margin: 2.5rem auto 0;
+            padding: 1rem 0 3.5rem;
+        }
+
+        .team-stage {
+            position: relative;
+            height: 315px;
+            perspective: 1200px;
+        }
+
+        .team-card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: min(310px, 72vw);
+            min-height: 245px;
+            padding: 1.8rem;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: linear-gradient(150deg, rgba(28, 28, 42, .98), rgba(16, 18, 29, .98));
+            box-shadow: 0 24px 50px rgba(0, 0, 0, .28);
+            transform: translate(-50%, -50%) scale(.72);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 1;
+            transition: transform .65s cubic-bezier(.22, 1, .36, 1), opacity .45s ease, border-color .45s ease, box-shadow .45s ease;
+        }
+
+        .team-card[data-position="left"],
+        .team-card[data-position="right"] {
+            opacity: .62;
+            pointer-events: auto;
+            z-index: 2;
+        }
+
+        .team-card[data-position="left"] {
+            transform: translate(-50%, -50%) translateX(-245px) scale(.82) rotateY(8deg);
+        }
+
+        .team-card[data-position="right"] {
+            transform: translate(-50%, -50%) translateX(245px) scale(.82) rotateY(-8deg);
+        }
+
+        .team-card[data-position="far-left"],
+        .team-card[data-position="far-right"] {
+            opacity: .18;
+            z-index: 1;
+        }
+
+        .team-card[data-position="far-left"] {
+            transform: translate(-50%, -50%) translateX(-430px) scale(.68) rotateY(14deg);
+        }
+
+        .team-card[data-position="far-right"] {
+            transform: translate(-50%, -50%) translateX(430px) scale(.68) rotateY(-14deg);
+        }
+
+        .team-card[data-position="center"] {
+            opacity: 1;
+            pointer-events: auto;
+            z-index: 5;
+            border-color: rgba(0, 212, 255, .7);
+            box-shadow: 0 28px 70px rgba(0, 212, 255, .16), 0 18px 45px rgba(0, 0, 0, .35);
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .team-card__index {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.4rem;
+            height: 2.4rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0, 212, 255, .55);
+            border-radius: 50%;
+            color: var(--cyan);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: .8rem;
+        }
+
+        .team-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.45rem;
+            margin-bottom: .5rem;
+        }
+
+        .team-card p {
+            color: var(--cyan);
+            font-size: .78rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .team-card span {
+            display: block;
+            margin-top: 1.3rem;
+            color: var(--muted);
+            font-size: .84rem;
+            line-height: 1.6;
+        }
+
+        .team-control {
+            position: absolute;
+            top: 50%;
+            z-index: 8;
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            background: rgba(21, 21, 31, .88);
+            color: var(--text);
+            font-size: 1.5rem;
+            line-height: 1;
+            cursor: pointer;
+            transform: translateY(-50%);
+            transition: border-color .25s ease, color .25s ease, background .25s ease;
+        }
+
+        .team-control:hover,
+        .team-control:focus-visible {
+            border-color: var(--cyan);
+            background: rgba(0, 212, 255, .12);
+            color: var(--cyan);
+            outline: none;
+        }
+
+        .team-control.prev {
+            left: 1rem;
+        }
+
+        .team-control.next {
+            right: 1rem;
+        }
+
+        .team-dots {
+            display: flex;
+            justify-content: center;
+            gap: .55rem;
+            margin-top: 1rem;
+        }
+
+        .team-dot {
+            width: 7px;
+            height: 7px;
+            padding: 0;
+            border: 0;
+            border-radius: 50%;
+            background: var(--border);
+            cursor: pointer;
+            transition: width .3s ease, border-radius .3s ease, background .3s ease;
+        }
+
+        .team-dot.active {
+            width: 24px;
+            border-radius: 99px;
+            background: var(--cyan);
+        }
+
         .section-title {
             font-family: 'Space Grotesk', sans-serif;
             font-size: clamp(1.5rem, 3vw, 2.2rem);
@@ -423,6 +590,34 @@
                 grid-template-columns: 1fr;
             }
 
+            .team-stage {
+                height: 285px;
+            }
+
+            .team-card[data-position="left"] {
+                transform: translate(-50%, -50%) translateX(-150px) scale(.72) rotateY(8deg);
+            }
+
+            .team-card[data-position="right"] {
+                transform: translate(-50%, -50%) translateX(150px) scale(.72) rotateY(-8deg);
+            }
+
+            .team-card[data-position="far-left"] {
+                transform: translate(-50%, -50%) translateX(-260px) scale(.6) rotateY(14deg);
+            }
+
+            .team-card[data-position="far-right"] {
+                transform: translate(-50%, -50%) translateX(260px) scale(.6) rotateY(-14deg);
+            }
+
+            .team-control.prev {
+                left: 0;
+            }
+
+            .team-control.next {
+                right: 0;
+            }
+
             .nav-links {
                 display: none;
             }
@@ -503,6 +698,49 @@
                     into a polished composition.</p>
                 <p>Currently finishing my undergraduate degree in English Education (Tadris Bahasa Inggris) at IAIH
                     while actively building my freelance portfolio through real client projects.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <p class="section-label reveal">KRXSHING TEAM</p>
+        <h2 class="section-title reveal">People Behind the Work</h2>
+        <div class="divider"></div>
+        <div class="team-carousel reveal" id="teamCarousel" aria-label="KRXSHING TEAM members">
+            <button class="team-control prev" type="button" aria-label="Previous team member">&#8249;</button>
+            <div class="team-stage">
+                <article class="team-card" data-member="0">
+                    <div class="team-card__index">01</div>
+                    <h3>Hendra Kurniawan</h3>
+                    <p>Chief Manager</p>
+                    <span>Leading the direction, vision, and creative rhythm of KRXSHING TEAM.</span>
+                </article>
+                <article class="team-card" data-member="1">
+                    <div class="team-card__index">02</div>
+                    <h3>imkrxsher</h3>
+                    <p>Graphic Designer</p>
+                    <span>Building visual identities through sharp typography and expressive form.</span>
+                </article>
+                <article class="team-card" data-member="2">
+                    <div class="team-card__index">03</div>
+                    <h3>levishrwd</h3>
+                    <p>Frontend Developer</p>
+                    <span>Turning visual direction into responsive, considered digital experiences.</span>
+                </article>
+                <article class="team-card" data-member="3">
+                    <div class="team-card__index">04</div>
+                    <h3>180&deg;man</h3>
+                    <p>Graphic Designer</p>
+                    <span>Exploring visual angles, unexpected details, and graphic experimentation.</span>
+                </article>
+            </div>
+            <button class="team-control next" type="button" aria-label="Next team member">&#8250;</button>
+            <div class="team-dots" aria-label="Choose team member">
+                <button class="team-dot active" type="button" aria-label="Show Hendra Kurniawan"
+                    data-member="0"></button>
+                <button class="team-dot" type="button" aria-label="Show imkrxsher" data-member="1"></button>
+                <button class="team-dot" type="button" aria-label="Show levishrwd" data-member="2"></button>
+                <button class="team-dot" type="button" aria-label="Show 180 degree man" data-member="3"></button>
             </div>
         </div>
     </section>
@@ -596,6 +834,43 @@
         function toggleMenu() { const isOpen = mobileMenu.classList.toggle('open'); hamburger.setAttribute('aria-expanded', String(isOpen)); }
         mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => { mobileMenu.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); }));
         hamburger.addEventListener('keydown', (event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleMenu(); } });
+        const teamCarousel = document.getElementById('teamCarousel');
+        const teamCards = Array.from(teamCarousel.querySelectorAll('.team-card'));
+        const teamDots = Array.from(teamCarousel.querySelectorAll('.team-dot'));
+        let teamIndex = 0;
+        let teamTimer;
+
+        function teamDistance(cardIndex) {
+            const count = teamCards.length;
+            let distance = (cardIndex - teamIndex + count) % count;
+            if (distance > count / 2) distance -= count;
+            return distance;
+        }
+
+        function renderTeam(index) {
+            teamIndex = (index + teamCards.length) % teamCards.length;
+            teamCards.forEach((card, cardIndex) => {
+                const distance = teamDistance(cardIndex);
+                const position = distance === 0 ? 'center' : distance === -1 ? 'left' : distance === 1 ? 'right' : distance < 0 ? 'far-left' : 'far-right';
+                card.dataset.position = position;
+            });
+            teamDots.forEach((dot, dotIndex) => dot.classList.toggle('active', dotIndex === teamIndex));
+        }
+
+        function restartTeamTimer() {
+            clearInterval(teamTimer);
+            teamTimer = setInterval(() => renderTeam(teamIndex + 1), 4500);
+        }
+
+        teamCarousel.querySelector('.prev').addEventListener('click', () => { renderTeam(teamIndex - 1); restartTeamTimer(); });
+        teamCarousel.querySelector('.next').addEventListener('click', () => { renderTeam(teamIndex + 1); restartTeamTimer(); });
+        teamDots.forEach((dot) => dot.addEventListener('click', () => { renderTeam(Number(dot.dataset.member)); restartTeamTimer(); }));
+        teamCarousel.addEventListener('mouseenter', () => clearInterval(teamTimer));
+        teamCarousel.addEventListener('mouseleave', restartTeamTimer);
+        teamCarousel.addEventListener('focusin', () => clearInterval(teamTimer));
+        teamCarousel.addEventListener('focusout', restartTeamTimer);
+        renderTeam(teamIndex);
+        restartTeamTimer();
         const reveals = document.querySelectorAll('.reveal');
         const obs = new IntersectionObserver((entries) => { entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); obs.unobserve(e.target); } }); }, { threshold: .1 });
         reveals.forEach(r => obs.observe(r));
