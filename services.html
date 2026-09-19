@@ -79,48 +79,46 @@
             letter-spacing: .05em;
         }
 
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: .9rem;
+            font-weight: 500;
             position: relative;
-            padding: .35rem 0;
+            padding: .45rem .75rem;
+            border-radius: .55rem;
+            isolation: isolate;
             transition: color .25s ease, transform .25s ease;
         }
 
-        .nav-links a::after {
+        .nav-links a::before {
             content: '';
             position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 2px;
-            border-radius: 2px;
-            background: linear-gradient(90deg, var(--violet), var(--cyan));
-            transform: scaleX(0);
-            transform-origin: center;
-            transition: transform .25s ease;
-            gap: 2rem;
-            list-style: none;
+            inset: 0;
+            z-index: -1;
+            border: 1px solid rgba(123, 47, 255, .35);
+            border-radius: inherit;
+            background: linear-gradient(135deg, rgba(123, 47, 255, .22), rgba(0, 212, 255, .14));
+            opacity: 0;
+            transform: scale(.82);
+            transition: opacity .25s ease, transform .25s ease;
         }
-        .nav-links a:focus-visible {
-        .nav-links a {
-            transform: translateY(-2px);
-            color: var(--muted);
-            text-decoration: none;
-        .nav-links a:hover::after,
-        .nav-links a:focus-visible::after,
-        .nav-links a.active::after {
-            transform: scaleX(1);
-        }
-
-        .nav-links a.active {
-            color: var(--text);
 
         .nav-links a:hover,
-        .nav-links a.active {
+        .nav-links a:focus-visible {
             color: var(--text);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a:hover::before,
+        .nav-links a:focus-visible::before,
+        .nav-links a.active::before {
+            opacity: 1;
+            transform: scale(1);
         }
 
         .nav-links a.active {
-            border-bottom: 2px solid var(--violet);
-            padding-bottom: 2px;
+            color: var(--text);
         }
 
         .page-hero {
