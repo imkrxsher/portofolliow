@@ -78,7 +78,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 1.2rem 6vw;
+            min-height: 68px;
+            padding: 0 6vw;
             background: rgba(13, 13, 20, .85);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
@@ -106,10 +107,14 @@
             font-size: .9rem;
             font-weight: 500;
             position: relative;
-            padding: .45rem .75rem;
+            width: 100px;
+            height: 36px;
+            align-items: center;
+            justify-content: center;
+            padding: 0 .75rem;
             border-radius: .55rem;
             isolation: isolate;
-            transition: color .25s ease, transform .25s ease;
+            transition: color .25s ease, background-color .25s ease;
         }
 
         .nav-links a::before {
@@ -117,18 +122,17 @@
             position: absolute;
             inset: 0;
             z-index: -1;
-            border: 1px solid rgba(123, 47, 255, .35);
+            border: 1px solid rgba(0, 212, 255, .75);
             border-radius: inherit;
-            background: linear-gradient(135deg, rgba(123, 47, 255, .22), rgba(0, 212, 255, .14));
+            background: var(--cyan);
             opacity: 0;
-            transform: scale(.82);
+            transform: scale(.96);
             transition: opacity .25s ease, transform .25s ease;
         }
 
         .nav-links a:hover,
         .nav-links a:focus-visible {
-            color: var(--text);
-            transform: translateY(-2px);
+            color: #07131a;
         }
 
         .nav-links a:hover::before,
@@ -139,7 +143,7 @@
         }
 
         .nav-links a.active {
-            color: var(--text);
+            color: #07131a;
         }
 
         .hamburger {
