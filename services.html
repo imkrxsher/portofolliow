@@ -79,18 +79,39 @@
             letter-spacing: .05em;
         }
 
-        .nav-links {
-            display: flex;
+            position: relative;
+            padding: .35rem 0;
+            transition: color .25s ease, transform .25s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 2px;
+            border-radius: 2px;
+            background: linear-gradient(90deg, var(--violet), var(--cyan));
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform .25s ease;
             gap: 2rem;
             list-style: none;
         }
-
+        .nav-links a:focus-visible {
         .nav-links a {
+            transform: translateY(-2px);
             color: var(--muted);
             text-decoration: none;
-            font-size: .9rem;
-            font-weight: 500;
+        .nav-links a:hover::after,
+        .nav-links a:focus-visible::after,
+        .nav-links a.active::after {
+            transform: scaleX(1);
         }
+
+        .nav-links a.active {
+            color: var(--text);
 
         .nav-links a:hover,
         .nav-links a.active {
