@@ -664,7 +664,7 @@
                 <div class="form-group"><label for="contact-email">Email</label><input id="contact-email" type="email"
                         name="email" placeholder="you@example.com" required /></div>
                 <div class="form-group"><label for="contact-whatsapp">WhatsApp</label><input id="contact-whatsapp" type="whatsapp"
-                        name="whatsapp" placeholder="whatsapp number" required /></div>
+                    name="whatsapp" placeholder="+" required /></div>
                 <div class="form-group"><label for="contact-service">Service Needed</label><select id="contact-service"
                         name="service" required>
                         <option value="" selected disabled>Select a service</option>
@@ -713,6 +713,10 @@
         const hamburger = document.getElementById('hamburger');
         const contactForm = document.querySelector('.contact-form');
         const formWarning = document.getElementById('formWarning');
+        const deadlineInput = document.getElementById('contact-deadline');
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        deadlineInput.min = [tomorrow.getFullYear(), String(tomorrow.getMonth() + 1).padStart(2, '0'), String(tomorrow.getDate()).padStart(2, '0')].join('-');
         function toggleMenu() { const isOpen = mobileMenu.classList.toggle('open'); hamburger.setAttribute('aria-expanded', String(isOpen)); }
         mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => { mobileMenu.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); }));
         hamburger.addEventListener('keydown', (event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleMenu(); } });
