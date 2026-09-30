@@ -721,6 +721,7 @@
         tomorrow.setDate(tomorrow.getDate() + 1);
         flatpickr(deadlineInput, {
             dateFormat: 'd/m/Y',
+            yearSelectorType: 'dropdown',
             minDate: tomorrow,
             disableMobile: true,
             allowInput: true
