@@ -43,6 +43,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap"
         rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css" />
     <style>
         :root {
             --bg: #0D0D14;
@@ -600,7 +601,8 @@
                         </div>
                         <div>
                             <h4>WhatsApp</h4>
-                            <p>+62 853-3477-6315</p>
+                            id="contact-deadline" type="text" name="preferred_deadline" placeholder="dd/mm/yyyy"
+                            autocomplete="off" required /></div>
                         </div>
                     </a><a href="https://instagram.com/imkrxsher" target="_blank" rel="noreferrer" class="contact-link">
                         <div class="icon" aria-hidden="true">
@@ -675,7 +677,7 @@
                         <option value="Other">Other</option>
                     </select></div>
                 <div class="form-group"><label for="contact-deadline">Preferred Deadline</label><input
-                        id="contact-deadline" type="date" name="preferred_deadline" required /></div>
+                    id="contact-deadline" type="date" lang="en-GB" name="preferred_deadline" required /></div>
                 <div class="form-group"><label for="contact-message">Project Details</label><textarea
                         id="contact-message" name="details" placeholder="Tell me about your project..."
                         required></textarea></div><button type="submit" class="btn-primary">Send Message</button>
@@ -708,6 +710,7 @@
     <footer><span class="logo">iMKRXSHER</span>
         <p>© 2026 iMKRXSHER — Freelance Design Services</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         const mobileMenu = document.getElementById('mobileMenu');
         const hamburger = document.getElementById('hamburger');
@@ -716,7 +719,12 @@
         const deadlineInput = document.getElementById('contact-deadline');
         const tomorrow = new Date();
         tomorrow.setDate(tomorrow.getDate() + 1);
-        deadlineInput.min = [tomorrow.getFullYear(), String(tomorrow.getMonth() + 1).padStart(2, '0'), String(tomorrow.getDate()).padStart(2, '0')].join('-');
+        flatpickr(deadlineInput, {
+            dateFormat: 'd/m/Y',
+            minDate: tomorrow,
+            disableMobile: true,
+            allowInput: true
+        });
         function toggleMenu() { const isOpen = mobileMenu.classList.toggle('open'); hamburger.setAttribute('aria-expanded', String(isOpen)); }
         mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => { mobileMenu.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); }));
         hamburger.addEventListener('keydown', (event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleMenu(); } });
