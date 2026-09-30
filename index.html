@@ -1111,59 +1111,51 @@
     /* ── HAMBURGER BUTTON ── */
     .hamburger {
       display: none;
+      width: 40px;
+      height: 40px;
+      align-items: center;
+      justify-content: center;
       flex-direction: column;
       gap: 5px;
       cursor: pointer;
-      padding: 4px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
     }
 
     .hamburger span {
       display: block;
-      width: 24px;
+      width: 18px;
       height: 2px;
       background: var(--text);
-      transition: all .3s;
+      border-radius: 2px;
     }
 
     /* ── MOBILE MENU ── */
     .mobile-menu {
+      display: none;
       position: fixed;
-      top: 65px;
-      left: 0;
-      right: 0;
-      background: rgba(13, 13, 20, 0.98);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 1.5rem 6vw;
+      top: 74px;
+      left: 6vw;
+      right: 6vw;
       z-index: 99;
-      display: flex;
       flex-direction: column;
-      gap: 1.5rem;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(-12px);
-      transition: opacity .25s ease, transform .25s ease;
-    }
-
-    .mobile-menu.open {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
+      gap: .4rem;
+      padding: .8rem;
+      background: rgba(21, 21, 31, .98);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, .35);
     }
 
     .mobile-menu a {
       color: var(--text);
       text-decoration: none;
-      font-size: 1.1rem;
-      font-weight: 500;
-      transition: color .2s ease, transform .2s ease, opacity .2s ease;
-      transform: translateX(-8px);
-      opacity: 0.7;
+      padding: .8rem 1rem;
+      border-radius: 8px;
     }
 
-    .mobile-menu.open a {
-      transform: translateX(0);
-      opacity: 1;
+    .mobile-menu a:hover {
+      background: var(--card);
     }
 
     @media (max-width: 768px) {
@@ -1178,6 +1170,10 @@
       }
 
       .hamburger {
+        display: flex;
+      }
+
+      .mobile-menu.open {
         display: flex;
       }
 
@@ -1425,12 +1421,7 @@
       }
 
       .mobile-menu {
-        top: 58px;
-        padding: 1.2rem 5vw;
-      }
-
-      .mobile-menu a {
-        font-size: 1rem;
+        top: 74px;
       }
 
       .contact-wrap {

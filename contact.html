@@ -267,15 +267,23 @@
         .contact-link {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            min-width: 0;
+            min-height: 72px;
+            gap: .75rem;
             text-decoration: none;
             color: var(--text);
             font-size: .95rem;
-            padding: 1rem 1.2rem;
+            padding: .75rem .9rem;
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: 10px;
             transition: border-color .2s, transform .2s;
+        }
+
+        .contact-link > div:last-child {
+            min-width: 0;
+            flex: 1;
+            text-align: center;
         }
 
         .contact-link:hover {
@@ -305,12 +313,15 @@
         .contact-link div h4 {
             font-weight: 600;
             font-size: .9rem;
+            line-height: 1.2;
             margin-bottom: .2rem;
         }
 
         .contact-link div p {
-            font-size: .8rem;
+            font-size: .75rem;
+            line-height: 1.3;
             color: var(--muted);
+            overflow-wrap: anywhere;
         }
 
         .contact-form {
