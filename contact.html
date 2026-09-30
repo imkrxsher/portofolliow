@@ -92,6 +92,7 @@
             font-size: 1.2rem;
             background: linear-gradient(90deg, var(--violet), var(--cyan));
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             text-decoration: none;
         }
@@ -315,6 +316,10 @@
             transform: translate(1px, -1px) scale(.92);
         }
 
+        .flatpickr-calendar {
+            font-family: 'Inter', sans-serif;
+        }
+
         .contact-link div h4 {
             font-weight: 600;
             font-size: .9rem;
@@ -496,6 +501,7 @@
             font-weight: 700;
             background: linear-gradient(90deg, var(--violet), var(--cyan));
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -522,6 +528,10 @@
 
             .contact-links {
                 grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
             }
 
             .nav-links {
@@ -665,8 +675,8 @@
                         name="name" placeholder="John Doe" required /></div>
                 <div class="form-group"><label for="contact-email">Email</label><input id="contact-email" type="email"
                         name="email" placeholder="you@example.com" required /></div>
-                <div class="form-group"><label for="contact-whatsapp">WhatsApp</label><input id="contact-whatsapp" type="whatsapp"
-                    name="whatsapp" placeholder="(+xx)" required /></div>
+                <div class="form-group"><label for="contact-whatsapp">WhatsApp</label><input id="contact-whatsapp"
+                    type="tel" name="whatsapp" inputmode="tel" autocomplete="tel" placeholder="(+xx)" required /></div>
                 <div class="form-group"><label for="contact-service">Service Needed</label><select id="contact-service"
                         name="service" required>
                         <option value="" selected disabled>Select a service</option>
@@ -677,7 +687,8 @@
                         <option value="Other">Other</option>
                     </select></div>
                 <div class="form-group"><label for="contact-deadline">Preferred Deadline</label><input
-                    id="contact-deadline" type="date" lang="en-GB" name="preferred_deadline" required /></div>
+                    id="contact-deadline" type="text" name="preferred_deadline" placeholder="dd/mm/yyyy"
+                    autocomplete="off" required /></div>
                 <div class="form-group"><label for="contact-message">Project Details</label><textarea
                         id="contact-message" name="details" placeholder="Tell me about your project..."
                         required></textarea></div><button type="submit" class="btn-primary">Send Message</button>
